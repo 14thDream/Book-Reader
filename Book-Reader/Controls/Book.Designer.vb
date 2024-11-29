@@ -31,7 +31,7 @@ Partial Class Book
         ' 
         ' PictureBoxCover
         ' 
-        PictureBoxCover.Location = New Point(0, 0)
+        PictureBoxCover.Location = New Point(19, 19)
         PictureBoxCover.Name = "PictureBoxCover"
         PictureBoxCover.Size = New Size(80, 128)
         PictureBoxCover.TabIndex = 0
@@ -39,7 +39,7 @@ Partial Class Book
         ' 
         ' LabelTitle
         ' 
-        LabelTitle.Location = New Point(-1, 127)
+        LabelTitle.Location = New Point(18, 146)
         LabelTitle.Name = "LabelTitle"
         LabelTitle.Size = New Size(80, 23)
         LabelTitle.TabIndex = 1
@@ -48,12 +48,14 @@ Partial Class Book
         ' PanelBook
         ' 
         PanelBook.Anchor = AnchorStyles.None
+        PanelBook.AutoSize = True
         PanelBook.BackColor = SystemColors.Control
         PanelBook.Controls.Add(LabelTitle)
         PanelBook.Controls.Add(PictureBoxCover)
         PanelBook.Location = New Point(0, 0)
         PanelBook.Name = "PanelBook"
-        PanelBook.Size = New Size(79, 150)
+        PanelBook.Padding = New Padding(16)
+        PanelBook.Size = New Size(118, 185)
         PanelBook.TabIndex = 2
         ' 
         ' Book
@@ -62,10 +64,11 @@ Partial Class Book
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(PanelBook)
         Name = "Book"
-        Size = New Size(79, 150)
+        Size = New Size(118, 185)
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         PanelBook.ResumeLayout(False)
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents PictureBoxCover As PictureBox
