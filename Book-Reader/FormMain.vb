@@ -20,9 +20,9 @@ Public Class FormMain
                         .Dock = DockStyle.Fill
                     }
 
-                    AddHandler b.PanelBook.MouseClick, AddressOf Book_MouseClick
+                    AddHandler b.PanelBook.MouseClick, AddressOf Book_Click
                     For Each c As Control In b.PanelBook.Controls
-                        AddHandler c.MouseClick, AddressOf Book_MouseClick
+                        AddHandler c.MouseClick, AddressOf Book_Click
                     Next
 
                     TableLayoutPanelDashboard.Controls.Add(b)
@@ -33,11 +33,15 @@ Public Class FormMain
         End Using
     End Sub
 
-    Private Sub Book_MouseClick(sender As Object, e As MouseEventArgs)
-        Panel2.Visible = True
+    Private Sub Book_Click(sender As Object, e As MouseEventArgs)
+        PanelDetails.Visible = True
     End Sub
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         LoadBooks()
+    End Sub
+
+    Private Sub ButtonBackDetails_Click(sender As Object, e As EventArgs) Handles ButtonBackDetails.Click
+        PanelDetails.Visible = False
     End Sub
 End Class

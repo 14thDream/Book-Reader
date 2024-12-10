@@ -22,10 +22,14 @@ Partial Class FormMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         TableLayoutPanelDashboard = New TableLayoutPanel()
-        Panel1 = New Panel()
-        Panel2 = New Panel()
-        Panel1.SuspendLayout()
+        PanelDashboard = New Panel()
+        PanelDetails = New Panel()
+        ButtonBackDetails = New PictureBox()
+        PanelDashboard.SuspendLayout()
+        PanelDetails.SuspendLayout()
+        CType(ButtonBackDetails, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TableLayoutPanelDashboard
@@ -48,40 +52,54 @@ Partial Class FormMain
         TableLayoutPanelDashboard.Size = New Size(1298, 999)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
-        ' Panel1
+        ' PanelDashboard
         ' 
-        Panel1.Controls.Add(Panel2)
-        Panel1.Controls.Add(TableLayoutPanelDashboard)
-        Panel1.Dock = DockStyle.Fill
-        Panel1.Location = New Point(0, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1298, 999)
-        Panel1.TabIndex = 1
+        PanelDashboard.Controls.Add(PanelDetails)
+        PanelDashboard.Controls.Add(TableLayoutPanelDashboard)
+        PanelDashboard.Dock = DockStyle.Fill
+        PanelDashboard.Location = New Point(0, 0)
+        PanelDashboard.Name = "PanelDashboard"
+        PanelDashboard.Size = New Size(1298, 999)
+        PanelDashboard.TabIndex = 1
         ' 
-        ' Panel2
+        ' PanelDetails
         ' 
-        Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(0, 0)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1298, 999)
-        Panel2.TabIndex = 1
-        Panel2.Visible = False
+        PanelDetails.Controls.Add(ButtonBackDetails)
+        PanelDetails.Dock = DockStyle.Fill
+        PanelDetails.Location = New Point(0, 0)
+        PanelDetails.Name = "PanelDetails"
+        PanelDetails.Size = New Size(1298, 999)
+        PanelDetails.TabIndex = 1
+        PanelDetails.Visible = False
+        ' 
+        ' ButtonBackDetails
+        ' 
+        ButtonBackDetails.Image = CType(resources.GetObject("ButtonBackDetails.Image"), Image)
+        ButtonBackDetails.Location = New Point(12, 12)
+        ButtonBackDetails.Name = "ButtonBackDetails"
+        ButtonBackDetails.Size = New Size(30, 30)
+        ButtonBackDetails.SizeMode = PictureBoxSizeMode.StretchImage
+        ButtonBackDetails.TabIndex = 0
+        ButtonBackDetails.TabStop = False
         ' 
         ' FormMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 999)
-        Controls.Add(Panel1)
+        Controls.Add(PanelDashboard)
         MinimumSize = New Size(1314, 755)
         Name = "FormMain"
         Text = "Book Reader"
-        Panel1.ResumeLayout(False)
+        PanelDashboard.ResumeLayout(False)
+        PanelDetails.ResumeLayout(False)
+        CType(ButtonBackDetails, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents TableLayoutPanelDashboard As TableLayoutPanel
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents PanelDashboard As Panel
+    Friend WithEvents PanelDetails As Panel
+    Friend WithEvents ButtonBackDetails As PictureBox
 
 End Class
