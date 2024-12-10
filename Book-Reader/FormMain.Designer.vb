@@ -27,9 +27,11 @@ Partial Class FormMain
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
         ButtonBackDetails = New PictureBox()
+        PictureBoxCover = New PictureBox()
         PanelDashboard.SuspendLayout()
         PanelDetails.SuspendLayout()
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxCover, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TableLayoutPanelDashboard
@@ -64,6 +66,7 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.Controls.Add(PictureBoxCover)
         PanelDetails.Controls.Add(ButtonBackDetails)
         PanelDetails.Dock = DockStyle.Fill
         PanelDetails.Location = New Point(0, 0)
@@ -82,6 +85,15 @@ Partial Class FormMain
         ButtonBackDetails.TabIndex = 0
         ButtonBackDetails.TabStop = False
         ' 
+        ' PictureBoxCover
+        ' 
+        PictureBoxCover.Location = New Point(113, 54)
+        PictureBoxCover.Name = "PictureBoxCover"
+        PictureBoxCover.Size = New Size(240, 384)
+        PictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBoxCover.TabIndex = 1
+        PictureBoxCover.TabStop = False
+        ' 
         ' FormMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -94,6 +106,7 @@ Partial Class FormMain
         PanelDashboard.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -101,5 +114,6 @@ Partial Class FormMain
     Friend WithEvents PanelDashboard As Panel
     Friend WithEvents PanelDetails As Panel
     Friend WithEvents ButtonBackDetails As PictureBox
+    Friend WithEvents PictureBoxCover As PictureBox
 
 End Class
