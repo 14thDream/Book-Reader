@@ -34,12 +34,13 @@ Partial Class Book
         PictureBoxCover.Location = New Point(19, 19)
         PictureBoxCover.Name = "PictureBoxCover"
         PictureBoxCover.Size = New Size(80, 128)
+        PictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBoxCover.TabIndex = 0
         PictureBoxCover.TabStop = False
         ' 
         ' LabelTitle
         ' 
-        LabelTitle.Location = New Point(18, 146)
+        LabelTitle.Location = New Point(18, 154)
         LabelTitle.Name = "LabelTitle"
         LabelTitle.Size = New Size(80, 23)
         LabelTitle.TabIndex = 1
@@ -55,7 +56,7 @@ Partial Class Book
         PanelBook.Location = New Point(0, 0)
         PanelBook.Name = "PanelBook"
         PanelBook.Padding = New Padding(16)
-        PanelBook.Size = New Size(118, 185)
+        PanelBook.Size = New Size(118, 193)
         PanelBook.TabIndex = 2
         ' 
         ' Book
