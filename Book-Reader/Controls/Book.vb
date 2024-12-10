@@ -1,11 +1,13 @@
 ﻿Public Class Book
+    Public Id As Integer
 
-    Public Sub New(Title As String)
+    Public Sub New(Id As Integer, Title As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        Me.Id = Id
         LabelTitle.Text = Title
 
         For Each c As Control In PanelBook.Controls
@@ -15,9 +17,9 @@
 
     End Sub
 
-    Public Sub New(Title As String, ImageLocation As String)
+    Public Sub New(Id As Integer, Title As String, ImageLocation As String)
 
-        Me.New(Title)
+        Me.New(Id, Title)
         PictureBoxCover.ImageLocation = ImageLocation
 
     End Sub
@@ -33,5 +35,4 @@
         PanelBook.BorderStyle = BorderStyle.None
 
     End Sub
-
 End Class
