@@ -23,6 +23,9 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         TableLayoutPanelDashboard = New TableLayoutPanel()
+        Panel1 = New Panel()
+        Panel2 = New Panel()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' TableLayoutPanelDashboard
@@ -45,18 +48,40 @@ Partial Class FormMain
         TableLayoutPanelDashboard.Size = New Size(1298, 999)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(Panel2)
+        Panel1.Controls.Add(TableLayoutPanelDashboard)
+        Panel1.Dock = DockStyle.Fill
+        Panel1.Location = New Point(0, 0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(1298, 999)
+        Panel1.TabIndex = 1
+        ' 
+        ' Panel2
+        ' 
+        Panel2.Dock = DockStyle.Fill
+        Panel2.Location = New Point(0, 0)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(1298, 999)
+        Panel2.TabIndex = 1
+        Panel2.Visible = False
+        ' 
         ' FormMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 999)
-        Controls.Add(TableLayoutPanelDashboard)
+        Controls.Add(Panel1)
         MinimumSize = New Size(1314, 755)
         Name = "FormMain"
         Text = "Book Reader"
+        Panel1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents TableLayoutPanelDashboard As TableLayoutPanel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
 
 End Class
