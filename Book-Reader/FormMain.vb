@@ -23,6 +23,7 @@ Public Class FormMain
 
                     Dim Book_Click = Book_Click_By_Id(Id)
 
+
                     AddHandler b.PanelBook.MouseClick, Book_Click
                     For Each c As Control In b.PanelBook.Controls
                         AddHandler c.MouseClick, Book_Click
@@ -31,10 +32,15 @@ Public Class FormMain
                     TableLayoutPanelDashboard.Controls.Add(b)
                 End While
             End Using
-
+            TableLayoutPanelDashboard.Controls.Add(New AddBookButton() With {
+                    .Dock = DockStyle.Fill
+                    })
             SqlConnection.Close()
         End Using
     End Sub
+
+
+
 
     Private Function Book_Click_By_Id(Id As Integer) As MouseEventHandler
         Dim ImagePath As String
@@ -64,7 +70,16 @@ Public Class FormMain
         LoadBooks()
     End Sub
 
+
     Private Sub ButtonBackDetails_Click(sender As Object, e As EventArgs) Handles ButtonBackDetails.Click
         PanelDetails.Visible = False
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub PanelDetails_Paint(sender As Object, e As PaintEventArgs) Handles PanelDetails.Paint
+
     End Sub
 End Class

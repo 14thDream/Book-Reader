@@ -26,12 +26,12 @@ Partial Class FormMain
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
-        ButtonBackDetails = New PictureBox()
         PictureBoxCover = New PictureBox()
+        ButtonBackDetails = New PictureBox()
         PanelDashboard.SuspendLayout()
         PanelDetails.SuspendLayout()
-        CType(ButtonBackDetails, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ButtonBackDetails, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TableLayoutPanelDashboard
@@ -51,7 +51,7 @@ Partial Class FormMain
         TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
         TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
         TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.Size = New Size(1298, 999)
+        TableLayoutPanelDashboard.Size = New Size(1298, 881)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
         ' PanelDashboard
@@ -61,7 +61,7 @@ Partial Class FormMain
         PanelDashboard.Dock = DockStyle.Fill
         PanelDashboard.Location = New Point(0, 0)
         PanelDashboard.Name = "PanelDashboard"
-        PanelDashboard.Size = New Size(1298, 999)
+        PanelDashboard.Size = New Size(1298, 881)
         PanelDashboard.TabIndex = 1
         ' 
         ' PanelDetails
@@ -71,9 +71,19 @@ Partial Class FormMain
         PanelDetails.Dock = DockStyle.Fill
         PanelDetails.Location = New Point(0, 0)
         PanelDetails.Name = "PanelDetails"
-        PanelDetails.Size = New Size(1298, 999)
+        PanelDetails.Size = New Size(1298, 881)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        ' 
+        ' PictureBoxCover
+        ' 
+        PictureBoxCover.Image = CType(resources.GetObject("PictureBoxCover.Image"), Image)
+        PictureBoxCover.Location = New Point(113, 54)
+        PictureBoxCover.Name = "PictureBoxCover"
+        PictureBoxCover.Size = New Size(240, 384)
+        PictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBoxCover.TabIndex = 1
+        PictureBoxCover.TabStop = False
         ' 
         ' ButtonBackDetails
         ' 
@@ -85,28 +95,19 @@ Partial Class FormMain
         ButtonBackDetails.TabIndex = 0
         ButtonBackDetails.TabStop = False
         ' 
-        ' PictureBoxCover
-        ' 
-        PictureBoxCover.Location = New Point(113, 54)
-        PictureBoxCover.Name = "PictureBoxCover"
-        PictureBoxCover.Size = New Size(240, 384)
-        PictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBoxCover.TabIndex = 1
-        PictureBoxCover.TabStop = False
-        ' 
         ' FormMain
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1298, 999)
+        ClientSize = New Size(1298, 881)
         Controls.Add(PanelDashboard)
         MinimumSize = New Size(1314, 755)
         Name = "FormMain"
         Text = "Book Reader"
         PanelDashboard.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
-        CType(ButtonBackDetails, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
+        CType(ButtonBackDetails, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
