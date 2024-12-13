@@ -40,6 +40,7 @@ Partial Class Book
         ' 
         ' LabelTitle
         ' 
+        LabelTitle.AutoEllipsis = True
         LabelTitle.Location = New Point(18, 154)
         LabelTitle.Name = "LabelTitle"
         LabelTitle.Size = New Size(80, 23)
