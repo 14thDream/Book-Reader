@@ -23,30 +23,32 @@ Partial Class AddBookButton
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AddBookButton))
-        Button1 = New Button()
+        PictureBoxIcon = New PictureBox()
+        CType(PictureBoxIcon, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Button1
+        ' PictureBoxIcon
         ' 
-        Button1.Anchor = AnchorStyles.None
-        Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
-        Button1.BackgroundImageLayout = ImageLayout.Stretch
-        Button1.Location = New Point(0, 0)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(84, 85)
-        Button1.TabIndex = 0
-        Button1.UseVisualStyleBackColor = True
+        PictureBoxIcon.Anchor = AnchorStyles.None
+        PictureBoxIcon.Image = CType(resources.GetObject("PictureBoxIcon.Image"), Image)
+        PictureBoxIcon.Location = New Point(0, 0)
+        PictureBoxIcon.Name = "PictureBoxIcon"
+        PictureBoxIcon.Size = New Size(84, 85)
+        PictureBoxIcon.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxIcon.TabIndex = 0
+        PictureBoxIcon.TabStop = False
         ' 
         ' AddBookButton
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(Button1)
+        Controls.Add(PictureBoxIcon)
         Name = "AddBookButton"
         Size = New Size(84, 85)
+        CType(PictureBoxIcon, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents PictureBoxIcon As PictureBox
 
 End Class

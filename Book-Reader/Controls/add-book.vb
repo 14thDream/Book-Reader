@@ -1,6 +1,5 @@
 ﻿Public Class AddBookButton
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        MessageBox.Show("You Pressed Me!")
+    Private Sub PictureBoxIcon_Click(sender As Object, e As EventArgs) Handles PictureBoxIcon.Click
         Dim AddBookForm As New AddBookForm
         AddBookForm.Show()
     End Sub
