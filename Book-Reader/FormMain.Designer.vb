@@ -79,7 +79,7 @@ Partial Class FormMain
         ' 
         PictureBoxCover.Location = New Point(113, 54)
         PictureBoxCover.Name = "PictureBoxCover"
-        PictureBoxCover.Size = New Size(240, 384)
+        PictureBoxCover.Size = New Size(320, 512)
         PictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBoxCover.TabIndex = 1
         PictureBoxCover.TabStop = False
