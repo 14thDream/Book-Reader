@@ -26,6 +26,9 @@ Partial Class FormMain
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
+        Label1 = New Label()
+        LabelSummary = New Label()
+        LabelAuthor = New Label()
         LabelTitle = New Label()
         PictureBoxCover = New PictureBox()
         ButtonBackDetails = New PictureBox()
@@ -67,6 +70,9 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.Controls.Add(Label1)
+        PanelDetails.Controls.Add(LabelSummary)
+        PanelDetails.Controls.Add(LabelAuthor)
         PanelDetails.Controls.Add(LabelTitle)
         PanelDetails.Controls.Add(PictureBoxCover)
         PanelDetails.Controls.Add(ButtonBackDetails)
@@ -76,6 +82,35 @@ Partial Class FormMain
         PanelDetails.Size = New Size(1298, 881)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(499, 54)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(84, 21)
+        Label1.TabIndex = 0
+        Label1.Text = "Summary"
+        ' 
+        ' LabelSummary
+        ' 
+        LabelSummary.BackColor = SystemColors.ControlLightLight
+        LabelSummary.BorderStyle = BorderStyle.FixedSingle
+        LabelSummary.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LabelSummary.Location = New Point(499, 84)
+        LabelSummary.Name = "LabelSummary"
+        LabelSummary.Size = New Size(736, 192)
+        LabelSummary.TabIndex = 4
+        ' 
+        ' LabelAuthor
+        ' 
+        LabelAuthor.Font = New Font("Segoe UI", 12.0F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        LabelAuthor.Location = New Point(113, 607)
+        LabelAuthor.Name = "LabelAuthor"
+        LabelAuthor.Size = New Size(320, 23)
+        LabelAuthor.TabIndex = 3
+        LabelAuthor.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' LabelTitle
         ' 
@@ -117,6 +152,7 @@ Partial Class FormMain
         Text = "Book Reader"
         PanelDashboard.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
+        PanelDetails.PerformLayout()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -128,5 +164,8 @@ Partial Class FormMain
     Friend WithEvents ButtonBackDetails As PictureBox
     Friend WithEvents PictureBoxCover As PictureBox
     Friend WithEvents LabelTitle As Label
+    Friend WithEvents LabelAuthor As Label
+    Friend WithEvents LabelSummary As Label
+    Friend WithEvents Label1 As Label
 
 End Class

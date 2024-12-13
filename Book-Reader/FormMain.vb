@@ -45,6 +45,8 @@ Public Class FormMain
     Private Function Book_Click_By_Id(Id As Integer) As MouseEventHandler
         Dim Title As String
         Dim ImagePath As String
+        Dim Author As String
+        Dim Summary As String
 
         Using SqlConnection As New MySqlConnection(ConnectionString)
             SqlConnection.Open()
@@ -57,6 +59,8 @@ Public Class FormMain
 
                 Title = Reader.GetString("Title")
                 ImagePath = Reader.GetString("ImagePath")
+                Author = Reader.GetString("Author")
+                Summary = Reader.GetString("Summary")
             End Using
 
             SqlConnection.Close()
@@ -65,6 +69,8 @@ Public Class FormMain
         Return Sub(sender As Object, e As MouseEventArgs)
                    LabelTitle.Text = Title
                    PictureBoxCover.ImageLocation = ImagePath
+                   LabelAuthor.Text = Author
+                   LabelSummary.Text = Summary
 
                    PanelDetails.Visible = True
                End Sub
