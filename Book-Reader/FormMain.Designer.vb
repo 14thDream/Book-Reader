@@ -26,6 +26,7 @@ Partial Class FormMain
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
+        LabelTitle = New Label()
         PictureBoxCover = New PictureBox()
         ButtonBackDetails = New PictureBox()
         PanelDashboard.SuspendLayout()
@@ -38,19 +39,19 @@ Partial Class FormMain
         ' 
         TableLayoutPanelDashboard.AutoScroll = True
         TableLayoutPanelDashboard.ColumnCount = 4
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
         TableLayoutPanelDashboard.Dock = DockStyle.Fill
         TableLayoutPanelDashboard.Location = New Point(0, 0)
         TableLayoutPanelDashboard.Name = "TableLayoutPanelDashboard"
         TableLayoutPanelDashboard.RowCount = 5
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
         TableLayoutPanelDashboard.Size = New Size(1298, 881)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
@@ -66,6 +67,7 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.Controls.Add(LabelTitle)
         PanelDetails.Controls.Add(PictureBoxCover)
         PanelDetails.Controls.Add(ButtonBackDetails)
         PanelDetails.Dock = DockStyle.Fill
@@ -74,6 +76,16 @@ Partial Class FormMain
         PanelDetails.Size = New Size(1298, 881)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        ' 
+        ' LabelTitle
+        ' 
+        LabelTitle.AutoEllipsis = True
+        LabelTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTitle.Location = New Point(113, 575)
+        LabelTitle.Name = "LabelTitle"
+        LabelTitle.Size = New Size(320, 32)
+        LabelTitle.TabIndex = 2
+        LabelTitle.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' PictureBoxCover
         ' 
@@ -96,7 +108,7 @@ Partial Class FormMain
         ' 
         ' FormMain
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 881)
         Controls.Add(PanelDashboard)
@@ -115,5 +127,6 @@ Partial Class FormMain
     Friend WithEvents PanelDetails As Panel
     Friend WithEvents ButtonBackDetails As PictureBox
     Friend WithEvents PictureBoxCover As PictureBox
+    Friend WithEvents LabelTitle As Label
 
 End Class

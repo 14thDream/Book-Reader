@@ -43,6 +43,7 @@ Public Class FormMain
 
 
     Private Function Book_Click_By_Id(Id As Integer) As MouseEventHandler
+        Dim Title As String
         Dim ImagePath As String
 
         Using SqlConnection As New MySqlConnection(ConnectionString)
@@ -53,6 +54,8 @@ Public Class FormMain
 
             Using Reader = Command.ExecuteReader
                 Reader.Read()
+
+                Title = Reader.GetString("Title")
                 ImagePath = Reader.GetString("ImagePath")
             End Using
 
@@ -60,6 +63,7 @@ Public Class FormMain
         End Using
 
         Return Sub(sender As Object, e As MouseEventArgs)
+                   LabelTitle.Text = Title
                    PictureBoxCover.ImageLocation = ImagePath
 
                    PanelDetails.Visible = True
