@@ -48,11 +48,22 @@ Public Class FormMain
         Dim Author As String
         Dim Summary As String
 
+        Dim Chapters As New DataTable
+
         Using SqlConnection As New MySqlConnection(ConnectionString)
             SqlConnection.Open()
 
-            Dim Command As New MySqlCommand("SELECT * FROM books WHERE id = @Id", SqlConnection)
+            Dim Command As New MySqlCommand("SELECT * FROM Books WHERE Id = @Id", SqlConnection)
             Command.Parameters.AddWithValue("@Id", Id)
+
+            Dim QueryChapters As New MySqlCommand("SELECT ChapterNumber AS Chapter, Title FROM Chapters WHERE BookId = @Id ORDER BY Chapter", SqlConnection)
+            QueryChapters.Parameters.AddWithValue("@Id", Id)
+
+            Dim DataAdapter As New MySqlDataAdapter With {
+                .SelectCommand = QueryChapters
+            }
+
+            DataAdapter.Fill(Chapters)
 
             Using Reader = Command.ExecuteReader
                 Reader.Read()
@@ -71,6 +82,16 @@ Public Class FormMain
                    PictureBoxCover.ImageLocation = ImagePath
                    LabelAuthor.Text = Author
                    LabelSummary.Text = Summary
+
+                   DataGridViewChapters.DataSource = Chapters
+
+                   Dim ColumnChapter = DataGridViewChapters.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
+                   Dim ColumnTitle = DataGridViewChapters.Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None)
+
+                   ColumnChapter.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+                   ColumnChapter.SortMode = DataGridViewColumnSortMode.NotSortable
+                   ColumnTitle.SortMode = DataGridViewColumnSortMode.NotSortable
 
                    PanelDetails.Visible = True
                End Sub
