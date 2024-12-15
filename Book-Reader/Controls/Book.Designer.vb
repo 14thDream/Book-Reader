@@ -33,7 +33,7 @@ Partial Class Book
         ' PictureBoxCover
         ' 
         PictureBoxCover.Image = CType(resources.GetObject("PictureBoxCover.Image"), Image)
-        PictureBoxCover.Location = New Point(19, 19)
+        PictureBoxCover.Location = New Point(13, 10)
         PictureBoxCover.Name = "PictureBoxCover"
         PictureBoxCover.Size = New Size(80, 128)
         PictureBoxCover.SizeMode = PictureBoxSizeMode.StretchImage
@@ -43,7 +43,7 @@ Partial Class Book
         ' LabelTitle
         ' 
         LabelTitle.AutoEllipsis = True
-        LabelTitle.Location = New Point(18, 154)
+        LabelTitle.Location = New Point(13, 145)
         LabelTitle.Name = "LabelTitle"
         LabelTitle.Size = New Size(80, 23)
         LabelTitle.TabIndex = 1
@@ -52,27 +52,25 @@ Partial Class Book
         ' PanelBook
         ' 
         PanelBook.Anchor = AnchorStyles.None
-        PanelBook.AutoSize = True
         PanelBook.BackColor = SystemColors.Control
         PanelBook.Controls.Add(LabelTitle)
         PanelBook.Controls.Add(PictureBoxCover)
-        PanelBook.Location = New Point(0, 0)
+        PanelBook.Location = New Point(76, 67)
         PanelBook.Name = "PanelBook"
         PanelBook.Padding = New Padding(16)
-        PanelBook.Size = New Size(118, 193)
+        PanelBook.Size = New Size(106, 173)
         PanelBook.TabIndex = 2
         ' 
         ' Book
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(PanelBook)
         Name = "Book"
-        Size = New Size(118, 185)
+        Size = New Size(271, 318)
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         PanelBook.ResumeLayout(False)
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents PictureBoxCover As PictureBox
