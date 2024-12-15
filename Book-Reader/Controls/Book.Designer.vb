@@ -27,6 +27,7 @@ Partial Class Book
         LabelTitle = New Label()
         PanelBook = New Panel()
         UpdateBookButton1 = New UpdateBookButton()
+        DeleteBookButton1 = New DeleteBookButton()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).BeginInit()
         PanelBook.SuspendLayout()
         SuspendLayout()
@@ -54,6 +55,7 @@ Partial Class Book
         ' 
         PanelBook.Anchor = AnchorStyles.None
         PanelBook.BackColor = SystemColors.Control
+        PanelBook.Controls.Add(DeleteBookButton1)
         PanelBook.Controls.Add(UpdateBookButton1)
         PanelBook.Controls.Add(LabelTitle)
         PanelBook.Controls.Add(PictureBoxCover)
@@ -71,9 +73,16 @@ Partial Class Book
         UpdateBookButton1.Size = New Size(12, 12)
         UpdateBookButton1.TabIndex = 3
         ' 
+        ' DeleteBookButton1
+        ' 
+        DeleteBookButton1.Location = New Point(0, 28)
+        DeleteBookButton1.Name = "DeleteBookButton1"
+        DeleteBookButton1.Size = New Size(12, 12)
+        DeleteBookButton1.TabIndex = 3
+        ' 
         ' Book
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(PanelBook)
         Name = "Book"
@@ -87,5 +96,6 @@ Partial Class Book
     Friend WithEvents LabelTitle As Label
     Friend WithEvents PanelBook As Panel
     Friend WithEvents UpdateBookButton1 As UpdateBookButton
+    Friend WithEvents DeleteBookButton1 As DeleteBookButton
 
 End Class
