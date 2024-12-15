@@ -41,6 +41,8 @@ Public Class FormSaveChapter
         End If
 
         SaveChapter()
+        MainForm.LoadChapters(BookId)
+
         Close()
     End Sub
 End Class

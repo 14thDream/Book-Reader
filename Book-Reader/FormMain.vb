@@ -82,7 +82,7 @@ Public Class FormMain
     End Sub
 
     Private Sub ButtonAddChapter_Click(sender As Object, e As EventArgs) Handles ButtonAddChapter.Click
-        Dim LastIndex = DataGridViewChapters.NewRowIndex - 1
+        Dim LastIndex = DataGridViewChapters.Rows.GetLastRow(DataGridViewElementStates.Visible)
         Dim ChapterNumber = 0
 
         If DataGridViewChapters.RowCount > 0 Then
