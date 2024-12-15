@@ -30,11 +30,12 @@ Partial Class FormSaveChapter
         ' TextBoxTitle
         ' 
         TextBoxTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        TextBoxTitle.Location = New Point(27, 27)
+        TextBoxTitle.Location = New Point(213, 27)
         TextBoxTitle.Name = "TextBoxTitle"
         TextBoxTitle.PlaceholderText = "Title"
-        TextBoxTitle.Size = New Size(100, 23)
+        TextBoxTitle.Size = New Size(373, 23)
         TextBoxTitle.TabIndex = 0
+        TextBoxTitle.TextAlign = HorizontalAlignment.Center
         ' 
         ' RichTextBoxContent
         ' 
