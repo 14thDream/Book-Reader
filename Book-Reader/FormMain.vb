@@ -45,8 +45,9 @@ Public Class FormMain
         PanelDetails.Visible = False
     End Sub
 
-    Private Sub AddBook(sender As Object, e As MouseEventArgs)
+    Private Sub AddBook(sender As Object, e As EventArgs)
         Dim AddBookForm As New FormSaveBook(ConnectionString, Me)
         AddBookForm.Show()
     End Sub
+
 End Class

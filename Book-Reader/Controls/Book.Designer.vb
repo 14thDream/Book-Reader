@@ -26,10 +26,9 @@ Partial Class Book
         PictureBoxCover = New PictureBox()
         LabelTitle = New Label()
         PanelBook = New Panel()
-        PictureBoxEdit = New PictureBox()
+        UpdateBookButton1 = New UpdateBookButton()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).BeginInit()
         PanelBook.SuspendLayout()
-        CType(PictureBoxEdit, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureBoxCover
@@ -55,6 +54,7 @@ Partial Class Book
         ' 
         PanelBook.Anchor = AnchorStyles.None
         PanelBook.BackColor = SystemColors.Control
+        PanelBook.Controls.Add(UpdateBookButton1)
         PanelBook.Controls.Add(LabelTitle)
         PanelBook.Controls.Add(PictureBoxCover)
         PanelBook.Location = New Point(76, 67)
@@ -63,33 +63,29 @@ Partial Class Book
         PanelBook.Size = New Size(106, 173)
         PanelBook.TabIndex = 2
         ' 
-        ' PictureBoxEdit
+        ' UpdateBookButton1
         ' 
-        PictureBoxEdit.Image = CType(resources.GetObject("PictureBoxEdit.Image"), Image)
-        PictureBoxEdit.Location = New Point(50, 77)
-        PictureBoxEdit.Name = "PictureBoxEdit"
-        PictureBoxEdit.Size = New Size(20, 20)
-        PictureBoxEdit.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBoxEdit.TabIndex = 2
-        PictureBoxEdit.TabStop = False
+        UpdateBookButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        UpdateBookButton1.Location = New Point(0, 10)
+        UpdateBookButton1.Name = "UpdateBookButton1"
+        UpdateBookButton1.Size = New Size(12, 12)
+        UpdateBookButton1.TabIndex = 3
         ' 
         ' Book
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(PictureBoxEdit)
         Controls.Add(PanelBook)
         Name = "Book"
         Size = New Size(271, 318)
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         PanelBook.ResumeLayout(False)
-        CType(PictureBoxEdit, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents PictureBoxCover As PictureBox
     Friend WithEvents LabelTitle As Label
     Friend WithEvents PanelBook As Panel
-    Friend WithEvents PictureBoxEdit As PictureBox
+    Friend WithEvents UpdateBookButton1 As UpdateBookButton
 
 End Class

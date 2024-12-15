@@ -17,10 +17,10 @@ Public Class Book
         MainForm = Form
 
         For Each c As Control In PanelBook.Controls
-            AddHandler c.Click, AddressOf LoadBookDetails
-
             AddHandler c.MouseHover, AddressOf AddBorder
             AddHandler c.MouseLeave, AddressOf RemoveBorder
+
+            AddHandler c.Click, AddressOf LoadBookDetails
         Next
 
     End Sub
@@ -97,5 +97,13 @@ Public Class Book
         ColumnTitle.SortMode = DataGridViewColumnSortMode.NotSortable
 
         MainForm.PanelDetails.Visible = True
+    End Sub
+
+    Private Sub PictureBoxEdit_Click(sender As Object, e As EventArgs)
+        Dim FormEditBook As New FormSaveBook(MainForm.ConnectionString, MainForm) With {
+            .BookId = Id
+        }
+
+        FormEditBook.Show()
     End Sub
 End Class
