@@ -21,10 +21,11 @@ Public Class Book
 
             If c.GetType() = GetType(UpdateBookButton) Then
                 AddHandler CType(c, UpdateBookButton).PictureBoxEdit.Click, AddressOf ShowUpdateBookForm
-                Continue For
+            ElseIf c.GetType() = GetType(DeleteBookButton) Then
+                AddHandler CType(c, DeleteBookButton).PictureBoxDelete.Click, AddressOf DeleteBook
+            Else
+                AddHandler c.Click, AddressOf LoadBookDetails
             End If
-
-            AddHandler c.Click, AddressOf LoadBookDetails
         Next
 
     End Sub
@@ -140,5 +141,20 @@ Public Class Book
         End Using
 
         FormEditBook.Show()
+    End Sub
+
+    Private Sub DeleteBook()
+        Using SqlConnection As New MySqlConnection(MainForm.ConnectionString)
+            SqlConnection.Open()
+
+            Dim Command As New MySqlCommand("DELETE FROM Books WHERE Id = @Id", SqlConnection)
+            Command.Parameters.AddWithValue("@Id", Id)
+
+            Command.ExecuteReader()
+
+            SqlConnection.Close()
+        End Using
+
+        MainForm.LoadBooks()
     End Sub
 End Class
