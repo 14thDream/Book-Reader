@@ -121,7 +121,7 @@ Public Class FormSaveBook
             Dim Query = $"UPDATE Books SET Title = @Title, ImagePath = @ImagePath, Author = @Author, Genre = @Genre, DatePublished = @DatePublished, Summary = @Summary WHERE Id = @Id"
             Dim Command = New MySqlCommand(Query, SqlConnection)
 
-            Command.Parameters.Add("@Id", BookId)
+            Command.Parameters.AddWithValue("@Id", BookId)
             Command.Parameters.AddWithValue("@Title", Title)
             Command.Parameters.AddWithValue("@ImagePath", ImageLocation)
             Command.Parameters.AddWithValue("@Author", Author)
