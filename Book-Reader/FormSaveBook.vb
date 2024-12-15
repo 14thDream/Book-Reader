@@ -1,7 +1,7 @@
 ﻿Imports System.Resources
 Imports MySql.Data.MySqlClient
 
-Public Class AddBookForm
+Public Class FormSaveBook
     Private MainForm As FormMain
 
     Private ConnectionString As String

@@ -46,7 +46,7 @@ Public Class FormMain
     End Sub
 
     Private Sub AddBook(sender As Object, e As MouseEventArgs)
-        Dim AddBookForm As New AddBookForm(ConnectionString, Me)
+        Dim AddBookForm As New FormSaveBook(ConnectionString, Me)
         AddBookForm.Show()
     End Sub
 End Class
