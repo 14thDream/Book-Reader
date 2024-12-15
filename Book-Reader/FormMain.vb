@@ -51,4 +51,16 @@ Public Class FormMain
         AddBookForm.Show()
     End Sub
 
+    Private Sub ButtonAddChapter_Click(sender As Object, e As EventArgs) Handles ButtonAddChapter.Click
+        Dim LastIndex = DataGridViewChapters.NewRowIndex - 1
+        Dim ChapterNumber = 0
+
+        If DataGridViewChapters.RowCount > 0 Then
+            Dim Row = DataGridViewChapters.Rows(LastIndex)
+            ChapterNumber = Row.Cells("Chapter").Value
+        End If
+
+        Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber)
+        SaveChapterForm.Show()
+    End Sub
 End Class

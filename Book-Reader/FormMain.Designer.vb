@@ -28,6 +28,7 @@ Partial Class FormMain
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
+        ButtonAddChapter = New Button()
         DataGridViewChapters = New DataGridView()
         Label1 = New Label()
         LabelSummary = New Label()
@@ -35,7 +36,6 @@ Partial Class FormMain
         LabelTitle = New Label()
         PictureBoxCover = New PictureBox()
         ButtonBackDetails = New PictureBox()
-        ButtonAddChapter = New Button()
         PanelDashboard.SuspendLayout()
         PanelDetails.SuspendLayout()
         CType(DataGridViewChapters, ComponentModel.ISupportInitialize).BeginInit()
@@ -47,19 +47,19 @@ Partial Class FormMain
         ' 
         TableLayoutPanelDashboard.AutoScroll = True
         TableLayoutPanelDashboard.ColumnCount = 4
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
         TableLayoutPanelDashboard.Dock = DockStyle.Fill
         TableLayoutPanelDashboard.Location = New Point(0, 0)
         TableLayoutPanelDashboard.Name = "TableLayoutPanelDashboard"
         TableLayoutPanelDashboard.RowCount = 5
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
         TableLayoutPanelDashboard.Size = New Size(1298, 881)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
@@ -90,6 +90,16 @@ Partial Class FormMain
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
         ' 
+        ' ButtonAddChapter
+        ' 
+        ButtonAddChapter.AutoSize = True
+        ButtonAddChapter.Location = New Point(1151, 776)
+        ButtonAddChapter.Name = "ButtonAddChapter"
+        ButtonAddChapter.Size = New Size(84, 25)
+        ButtonAddChapter.TabIndex = 6
+        ButtonAddChapter.Text = "Add Chapter"
+        ButtonAddChapter.UseVisualStyleBackColor = True
+        ' 
         ' DataGridViewChapters
         ' 
         DataGridViewChapters.AllowUserToAddRows = False
@@ -112,7 +122,7 @@ Partial Class FormMain
         DataGridViewChapters.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -130,7 +140,7 @@ Partial Class FormMain
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(499, 54)
         Label1.Name = "Label1"
         Label1.Size = New Size(84, 21)
@@ -149,7 +159,7 @@ Partial Class FormMain
         ' 
         ' LabelAuthor
         ' 
-        LabelAuthor.Font = New Font("Segoe UI", 12.0F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        LabelAuthor.Font = New Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         LabelAuthor.Location = New Point(113, 607)
         LabelAuthor.Name = "LabelAuthor"
         LabelAuthor.Size = New Size(320, 23)
@@ -159,7 +169,7 @@ Partial Class FormMain
         ' LabelTitle
         ' 
         LabelTitle.AutoEllipsis = True
-        LabelTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LabelTitle.Location = New Point(113, 575)
         LabelTitle.Name = "LabelTitle"
         LabelTitle.Size = New Size(320, 32)
@@ -186,19 +196,9 @@ Partial Class FormMain
         ButtonBackDetails.TabIndex = 0
         ButtonBackDetails.TabStop = False
         ' 
-        ' ButtonAddChapter
-        ' 
-        ButtonAddChapter.AutoSize = True
-        ButtonAddChapter.Location = New Point(1151, 776)
-        ButtonAddChapter.Name = "ButtonAddChapter"
-        ButtonAddChapter.Size = New Size(84, 25)
-        ButtonAddChapter.TabIndex = 6
-        ButtonAddChapter.Text = "Add Chapter"
-        ButtonAddChapter.UseVisualStyleBackColor = True
-        ' 
         ' FormMain
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 881)
         Controls.Add(PanelDashboard)
