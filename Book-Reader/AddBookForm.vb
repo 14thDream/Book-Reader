@@ -1,10 +1,11 @@
-﻿Imports System.IO
-Imports System.Windows.Forms.Design
+﻿Imports System.Resources
 Imports MySql.Data.MySqlClient
 
 Public Class AddBookForm
-    Private ConnectionString As String
     Private MainForm As FormMain
+
+    Private ConnectionString As String
+    Private ImageLocation As String
 
     Public Sub New(connection As String, form As FormMain)
 
@@ -12,9 +13,10 @@ Public Class AddBookForm
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        ConnectionString = connection
         MainForm = form
 
+        ConnectionString = connection
+        ImageLocation = ""
     End Sub
 
     Private Sub BookCover_PictureBox_Click(sender As Object, e As EventArgs) Handles BookCover_PictureBox.Click
@@ -26,9 +28,9 @@ Public Class AddBookForm
         Dim ImagePath = OpenFD.FileName
 
         Try
-            BookCover_PictureBox.ImageLocation = ImagePath
+            BookCover_PictureBox.Image = Image.FromFile(ImagePath)
+            ImageLocation = ImagePath
         Catch ex As Exception
-            BookCover_PictureBox.ImageLocation = ""
         Finally
             BookCover_PictureBox.Refresh()
         End Try
@@ -50,12 +52,7 @@ Public Class AddBookForm
         Dim Author = If(Author_TextBox.Text <> "", Author_TextBox.Text, "Unnamed")
         Dim Summary = Summary_TextBox.Text
         Dim Genre = Genre_ComboBox.Text
-        Dim ImagePath = BookCover_PictureBox.ImageLocation
         Dim DatePublished = BookDatePublished.Value 'Check if it requires a default value
-
-        If ImagePath = "" OrElse ImagePath Is Nothing Then
-            ImagePath = "Images/default-cover.jpg"
-        End If
 
         If Title = "" Then
             MessageBox.Show("Title field required")
@@ -72,7 +69,7 @@ Public Class AddBookForm
             Dim Command = New MySqlCommand(Query, SqlConnection)
 
             Command.Parameters.AddWithValue("@Title", Title)
-            Command.Parameters.AddWithValue("@ImagePath", ImagePath)
+            Command.Parameters.AddWithValue("@ImagePath", ImageLocation)
             Command.Parameters.AddWithValue("@Author", Author)
             Command.Parameters.AddWithValue("@Genre", Genre)
             Command.Parameters.AddWithValue("@DatePublished", DatePublished)
