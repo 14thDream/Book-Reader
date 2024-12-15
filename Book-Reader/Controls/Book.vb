@@ -54,22 +54,11 @@ Public Class Book
     End Sub
 
     Private Sub LoadBookDetails(sender As Object, e As MouseEventArgs)
-        Dim Chapters As New DataTable
-
         Using SqlConnection As New MySqlConnection(MainForm.ConnectionString)
             SqlConnection.Open()
 
             Dim Command As New MySqlCommand("SELECT * FROM Books WHERE Id = @Id", SqlConnection)
             Command.Parameters.AddWithValue("@Id", Id)
-
-            Dim QueryChapters As New MySqlCommand("SELECT ChapterNumber AS Chapter, Title FROM Chapters WHERE BookId = @Id ORDER BY Chapter", SqlConnection)
-            QueryChapters.Parameters.AddWithValue("@Id", Id)
-
-            Dim DataAdapter As New MySqlDataAdapter With {
-                .SelectCommand = QueryChapters
-            }
-
-            DataAdapter.Fill(Chapters)
 
             Using Reader = Command.ExecuteReader
                 Reader.Read()
@@ -91,15 +80,7 @@ Public Class Book
             SqlConnection.Close()
         End Using
 
-        MainForm.DataGridViewChapters.DataSource = Chapters
-
-        Dim ColumnChapter = MainForm.DataGridViewChapters.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
-        Dim ColumnTitle = MainForm.DataGridViewChapters.Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None)
-
-        ColumnChapter.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-
-        ColumnChapter.SortMode = DataGridViewColumnSortMode.NotSortable
-        ColumnTitle.SortMode = DataGridViewColumnSortMode.NotSortable
+        MainForm.LoadChapters(Id)
 
         MainForm.BookId = Id
         MainForm.PanelDetails.Visible = True

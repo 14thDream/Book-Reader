@@ -37,6 +37,36 @@ Public Class FormMain
         End Using
     End Sub
 
+    Public Sub LoadChapters(id As Integer)
+        Dim Chapters As New DataTable
+
+        Using SqlConnection As New MySqlConnection(ConnectionString)
+            SqlConnection.Open()
+
+            Dim QueryChapters As New MySqlCommand("SELECT ChapterNumber AS Chapter, Title FROM Chapters WHERE BookId = @Id ORDER BY Chapter", SqlConnection)
+            QueryChapters.Parameters.AddWithValue("@Id", id)
+
+            Dim DataAdapter As New MySqlDataAdapter With {
+                .SelectCommand = QueryChapters
+            }
+
+            DataAdapter.Fill(Chapters)
+
+            SqlConnection.Close()
+        End Using
+
+        DataGridViewChapters.DataSource = Chapters
+
+        Dim ColumnChapter = DataGridViewChapters.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
+        Dim ColumnTitle = DataGridViewChapters.Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None)
+
+        ColumnChapter.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+        ColumnChapter.SortMode = DataGridViewColumnSortMode.NotSortable
+        ColumnTitle.SortMode = DataGridViewColumnSortMode.NotSortable
+
+    End Sub
+
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         LoadBooks()
     End Sub
