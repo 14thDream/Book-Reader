@@ -3,6 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class FormMain
     Public ConnectionString As String = "server=localhost;database=BookReader;userid=root"
+    Public BookId As Integer
 
     Public Sub LoadBooks()
         TableLayoutPanelDashboard.Controls.Clear()

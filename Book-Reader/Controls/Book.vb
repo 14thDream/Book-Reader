@@ -101,6 +101,7 @@ Public Class Book
         ColumnChapter.SortMode = DataGridViewColumnSortMode.NotSortable
         ColumnTitle.SortMode = DataGridViewColumnSortMode.NotSortable
 
+        MainForm.BookId = Id
         MainForm.PanelDetails.Visible = True
     End Sub
 
