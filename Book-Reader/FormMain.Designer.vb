@@ -166,6 +166,7 @@ Partial Class FormMain
         ' 
         ' PictureBoxCover
         ' 
+        PictureBoxCover.Image = CType(resources.GetObject("PictureBoxCover.Image"), Image)
         PictureBoxCover.Location = New Point(113, 54)
         PictureBoxCover.Name = "PictureBoxCover"
         PictureBoxCover.Size = New Size(320, 512)
