@@ -108,14 +108,6 @@ Public Class FormMain
         PanelDetails.Visible = False
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub PanelDetails_Paint(sender As Object, e As PaintEventArgs) Handles PanelDetails.Paint
-
-    End Sub
-
     Private Sub AddBook(sender As Object, e As MouseEventArgs)
         Dim AddBookForm As New AddBookForm(ConnectionString, Me)
         AddBookForm.Show()
