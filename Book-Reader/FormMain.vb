@@ -89,4 +89,8 @@ Public Class FormMain
         Dim AddBookForm As New AddBookForm(ConnectionString, Me)
         AddBookForm.Show()
     End Sub
+
+    Private Sub PictureBoxCover_Click(sender As Object, e As EventArgs) Handles PictureBoxCover.Click
+
+    End Sub
 End Class

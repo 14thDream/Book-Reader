@@ -48,6 +48,8 @@ Partial Class AddBookForm
         BookCover_PictureBox.BackColor = Color.Transparent
         BookCover_PictureBox.BackgroundImageLayout = ImageLayout.Center
         BookCover_PictureBox.BorderStyle = BorderStyle.FixedSingle
+        BookCover_PictureBox.ErrorImage = Nothing
+        BookCover_PictureBox.ImageLocation = "C:\Users\USer\Source\Repos\Book-Readers\Book-Reader\Images\default-cover.jpg"
         BookCover_PictureBox.Location = New Point(331, 12)
         BookCover_PictureBox.Name = "BookCover_PictureBox"
         BookCover_PictureBox.Size = New Size(192, 307)
@@ -76,7 +78,7 @@ Partial Class AddBookForm
         ' 
         ' Summary_TextBox
         ' 
-        Summary_TextBox.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Summary_TextBox.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Summary_TextBox.Location = New Point(14, 169)
         Summary_TextBox.Multiline = True
         Summary_TextBox.Name = "Summary_TextBox"
@@ -86,7 +88,7 @@ Partial Class AddBookForm
         ' Summary_Label
         ' 
         Summary_Label.AutoSize = True
-        Summary_Label.Font = New Font("Sylfaen", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Summary_Label.Font = New Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Summary_Label.Location = New Point(14, 144)
         Summary_Label.Name = "Summary_Label"
         Summary_Label.Size = New Size(80, 22)
@@ -95,7 +97,7 @@ Partial Class AddBookForm
         ' 
         ' Genre_ComboBox
         ' 
-        Genre_ComboBox.Font = New Font("Segoe UI", 9.0F)
+        Genre_ComboBox.Font = New Font("Segoe UI", 9F)
         Genre_ComboBox.FormattingEnabled = True
         Genre_ComboBox.ItemHeight = 15
         Genre_ComboBox.Items.AddRange(New Object() {"Romance", "Fantasy", "Drama", "Horror", "Comedy", "Action", "History"})
@@ -106,7 +108,7 @@ Partial Class AddBookForm
         ' 
         ' Author_TextBox
         ' 
-        Author_TextBox.Font = New Font("Segoe UI", 9.0F)
+        Author_TextBox.Font = New Font("Segoe UI", 9F)
         Author_TextBox.Location = New Point(76, 37)
         Author_TextBox.Multiline = True
         Author_TextBox.Name = "Author_TextBox"
@@ -115,7 +117,7 @@ Partial Class AddBookForm
         ' 
         ' Title_TextBox
         ' 
-        Title_TextBox.Font = New Font("Segoe UI", 9.0F)
+        Title_TextBox.Font = New Font("Segoe UI", 9F)
         Title_TextBox.Location = New Point(76, 9)
         Title_TextBox.Multiline = True
         Title_TextBox.Name = "Title_TextBox"
@@ -125,7 +127,7 @@ Partial Class AddBookForm
         ' Genre_Label
         ' 
         Genre_Label.AutoSize = True
-        Genre_Label.Font = New Font("Sylfaen", 12.0F)
+        Genre_Label.Font = New Font("Sylfaen", 12F)
         Genre_Label.Location = New Point(14, 66)
         Genre_Label.Name = "Genre_Label"
         Genre_Label.Size = New Size(49, 22)
@@ -135,7 +137,7 @@ Partial Class AddBookForm
         ' Author_Label
         ' 
         Author_Label.AutoSize = True
-        Author_Label.Font = New Font("Sylfaen", 12.0F)
+        Author_Label.Font = New Font("Sylfaen", 12F)
         Author_Label.Location = New Point(14, 37)
         Author_Label.Name = "Author_Label"
         Author_Label.Size = New Size(56, 22)
@@ -145,7 +147,7 @@ Partial Class AddBookForm
         ' Title_Label
         ' 
         Title_Label.AutoSize = True
-        Title_Label.Font = New Font("Sylfaen", 12.0F)
+        Title_Label.Font = New Font("Sylfaen", 12F)
         Title_Label.Location = New Point(14, 9)
         Title_Label.Name = "Title_Label"
         Title_Label.Size = New Size(42, 22)
@@ -154,9 +156,9 @@ Partial Class AddBookForm
         ' 
         ' BookDatePublished
         ' 
-        BookDatePublished.CalendarFont = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        BookDatePublished.CalendarFont = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         BookDatePublished.CustomFormat = "MMMM dd, yyyy"
-        BookDatePublished.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        BookDatePublished.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         BookDatePublished.Format = DateTimePickerFormat.Custom
         BookDatePublished.Location = New Point(129, 106)
         BookDatePublished.Name = "BookDatePublished"
@@ -166,7 +168,7 @@ Partial Class AddBookForm
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Sylfaen", 12.0F)
+        Label1.Font = New Font("Sylfaen", 12F)
         Label1.Location = New Point(12, 106)
         Label1.Name = "Label1"
         Label1.Size = New Size(109, 22)
@@ -175,7 +177,7 @@ Partial Class AddBookForm
         ' 
         ' AddBookForm
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(556, 494)
         Controls.Add(Label1)
