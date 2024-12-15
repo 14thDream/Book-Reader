@@ -5,7 +5,7 @@ Public Class FormSaveBook
     Private MainForm As FormMain
 
     Private ConnectionString As String
-    Private ImageLocation As String
+    Public ImageLocation As String
 
     Property BookId As Integer
 
