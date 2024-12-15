@@ -98,7 +98,6 @@ Partial Class AddBookForm
         Genre_ComboBox.Font = New Font("Segoe UI", 9.0F)
         Genre_ComboBox.FormattingEnabled = True
         Genre_ComboBox.ItemHeight = 15
-        Genre_ComboBox.Items.AddRange(New Object() {"Romance", "Fantasy", "Drama", "Horror", "Comedy", "Action", "History"})
         Genre_ComboBox.Location = New Point(76, 65)
         Genre_ComboBox.Name = "Genre_ComboBox"
         Genre_ComboBox.Size = New Size(239, 23)
