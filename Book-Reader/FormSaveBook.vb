@@ -21,6 +21,26 @@ Public Class FormSaveBook
         ImageLocation = ""
 
         BookId = -1
+
+        Dim SqlConnection As New MySqlConnection(ConnectionString)
+
+        Try
+            SqlConnection.Open()
+
+            Dim Command As New MySqlCommand("SELECT Name FROM Genres", SqlConnection)
+            Dim Reader = Command.ExecuteReader
+
+            Genre_ComboBox.Items.Clear()
+
+            While Reader.Read
+                Dim genre = Reader.GetString("Name")
+                Genre_ComboBox.Items.Add(genre)
+            End While
+
+            SqlConnection.Close()
+        Catch ex As MySqlException
+            MessageBox.Show("Connection not found. Make sure that MySQL is open and running.")
+        End Try
     End Sub
 
     Private Sub BookCover_PictureBox_Click(sender As Object, e As EventArgs) Handles BookCover_PictureBox.Click
@@ -135,28 +155,6 @@ Public Class FormSaveBook
             Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub AddBookForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim SqlConnection As New MySqlConnection(ConnectionString)
-
-        Try
-            SqlConnection.Open()
-
-            Dim Command As New MySqlCommand("SELECT Name FROM Genres", SqlConnection)
-            Dim Reader = Command.ExecuteReader
-
-            Genre_ComboBox.Items.Clear()
-
-            While Reader.Read
-                Dim genre = Reader.GetString("Name")
-                Genre_ComboBox.Items.Add(genre)
-            End While
-
-            SqlConnection.Close()
-        Catch ex As MySqlException
-            MessageBox.Show("Connection not found. Make sure that MySQL is open and running.")
         End Try
     End Sub
 End Class

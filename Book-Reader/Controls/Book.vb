@@ -1,5 +1,4 @@
 ﻿Imports System.ComponentModel
-Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class Book
@@ -108,6 +107,37 @@ Public Class Book
         Dim FormEditBook As New FormSaveBook(MainForm.ConnectionString, MainForm) With {
             .BookId = Id
         }
+
+        Using SqlConnection As New MySqlConnection(MainForm.ConnectionString)
+            SqlConnection.Open()
+
+            Dim Command As New MySqlCommand("SELECT * FROM Books WHERE Id = @Id", SqlConnection)
+            Command.Parameters.AddWithValue("@Id", Id)
+
+            Dim Reader = Command.ExecuteReader()
+            Reader.Read()
+
+            FormEditBook.Title_TextBox.Text = Reader.GetString("Title")
+            FormEditBook.Author_TextBox.Text = Reader.GetString("Author")
+            FormEditBook.Summary_TextBox.Text = Reader.GetString("Summary")
+            FormEditBook.BookDatePublished.Value = Reader.GetMySqlDateTime("DatePublished")
+
+            Dim Genre = Reader.GetString("Genre")
+            FormEditBook.Genre_ComboBox.Text = Genre
+            FormEditBook.Genre_ComboBox.SelectedIndex = FormEditBook.Genre_ComboBox.Items.IndexOf(Genre)
+
+            Dim ImageLocation = Reader.GetString("ImagePath")
+
+            Try
+                FormEditBook.BookCover_PictureBox.Image = Image.FromFile(ImageLocation)
+                FormEditBook.ImageLocation = ImageLocation
+            Catch ex As Exception
+                Dim Resources As New ComponentResourceManager(GetType(FormMain))
+                FormEditBook.BookCover_PictureBox.Image = CType(Resources.GetObject("PictureBoxCover.Image"), Image)
+            End Try
+
+            SqlConnection.Close()
+        End Using
 
         FormEditBook.Show()
     End Sub
