@@ -22,6 +22,7 @@ Partial Class Book
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Book))
         PictureBoxCover = New PictureBox()
         LabelTitle = New Label()
         PanelBook = New Panel()
@@ -31,6 +32,7 @@ Partial Class Book
         ' 
         ' PictureBoxCover
         ' 
+        PictureBoxCover.Image = CType(resources.GetObject("PictureBoxCover.Image"), Image)
         PictureBoxCover.Location = New Point(19, 19)
         PictureBoxCover.Name = "PictureBoxCover"
         PictureBoxCover.Size = New Size(80, 128)

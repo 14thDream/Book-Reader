@@ -1,4 +1,7 @@
-﻿Public Class Book
+﻿Imports System.ComponentModel
+Imports System.IO
+
+Public Class Book
     Public Id As Integer
 
     Public Sub New(Id As Integer, Title As String)
@@ -20,7 +23,11 @@
     Public Sub New(Id As Integer, Title As String, ImageLocation As String)
 
         Me.New(Id, Title)
-        PictureBoxCover.ImageLocation = ImageLocation
+
+        Try
+            PictureBoxCover.Image = Image.FromFile(ImageLocation)
+        Catch ex As Exception
+        End Try
 
     End Sub
 

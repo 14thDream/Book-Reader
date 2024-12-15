@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class FormMain
     Private ConnectionString As String = "server=localhost;database=BookReader;userid=root"
 
-    Private Sub LoadBooks()
+    Public Sub LoadBooks()
         TableLayoutPanelDashboard.Controls.Clear()
 
         Using SqlConnection As New MySqlConnection(ConnectionString)
@@ -32,15 +32,17 @@ Public Class FormMain
                     TableLayoutPanelDashboard.Controls.Add(b)
                 End While
             End Using
-            TableLayoutPanelDashboard.Controls.Add(New AddBookButton() With {
-                    .Dock = DockStyle.Fill
-                    })
+
+            Dim AddButton = New AddBookButton With {
+                .Dock = DockStyle.Fill
+            }
+
+            AddHandler AddButton.PictureBoxIcon.Click, AddressOf AddBook
+            TableLayoutPanelDashboard.Controls.Add(AddButton)
+
             SqlConnection.Close()
         End Using
     End Sub
-
-
-
 
     Private Function Book_Click_By_Id(Id As Integer) As MouseEventHandler
         Dim Title As String
@@ -112,5 +114,10 @@ Public Class FormMain
 
     Private Sub PanelDetails_Paint(sender As Object, e As PaintEventArgs) Handles PanelDetails.Paint
 
+    End Sub
+
+    Private Sub AddBook(sender As Object, e As MouseEventArgs)
+        Dim AddBookForm As New AddBookForm(ConnectionString, Me)
+        AddBookForm.Show()
     End Sub
 End Class
