@@ -20,6 +20,11 @@ Public Class Book
             AddHandler c.MouseHover, AddressOf AddBorder
             AddHandler c.MouseLeave, AddressOf RemoveBorder
 
+            If c.GetType() = GetType(UpdateBookButton) Then
+                AddHandler CType(c, UpdateBookButton).PictureBoxEdit.Click, AddressOf ShowUpdateBookForm
+                Continue For
+            End If
+
             AddHandler c.Click, AddressOf LoadBookDetails
         Next
 
@@ -99,7 +104,7 @@ Public Class Book
         MainForm.PanelDetails.Visible = True
     End Sub
 
-    Private Sub PictureBoxEdit_Click(sender As Object, e As EventArgs)
+    Private Sub ShowUpdateBookForm(sender As Object, e As EventArgs)
         Dim FormEditBook As New FormSaveBook(MainForm.ConnectionString, MainForm) With {
             .BookId = Id
         }
