@@ -26,8 +26,10 @@ Partial Class Book
         PictureBoxCover = New PictureBox()
         LabelTitle = New Label()
         PanelBook = New Panel()
+        PictureBoxEdit = New PictureBox()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).BeginInit()
         PanelBook.SuspendLayout()
+        CType(PictureBoxEdit, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureBoxCover
@@ -61,20 +63,33 @@ Partial Class Book
         PanelBook.Size = New Size(106, 173)
         PanelBook.TabIndex = 2
         ' 
+        ' PictureBoxEdit
+        ' 
+        PictureBoxEdit.Image = CType(resources.GetObject("PictureBoxEdit.Image"), Image)
+        PictureBoxEdit.Location = New Point(50, 77)
+        PictureBoxEdit.Name = "PictureBoxEdit"
+        PictureBoxEdit.Size = New Size(20, 20)
+        PictureBoxEdit.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxEdit.TabIndex = 2
+        PictureBoxEdit.TabStop = False
+        ' 
         ' Book
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(PictureBoxEdit)
         Controls.Add(PanelBook)
         Name = "Book"
         Size = New Size(271, 318)
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         PanelBook.ResumeLayout(False)
+        CType(PictureBoxEdit, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents PictureBoxCover As PictureBox
     Friend WithEvents LabelTitle As Label
     Friend WithEvents PanelBook As Panel
+    Friend WithEvents PictureBoxEdit As PictureBox
 
 End Class
