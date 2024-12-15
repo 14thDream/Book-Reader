@@ -23,31 +23,31 @@ Partial Class DeleteBookButton
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DeleteBookButton))
-        PictureBox1 = New PictureBox()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        PictureBoxDelete = New PictureBox()
+        CType(PictureBoxDelete, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' PictureBox1
+        ' PictureBoxDelete
         ' 
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(0, 0)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(12, 12)
-        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBox1.TabIndex = 0
-        PictureBox1.TabStop = False
+        PictureBoxDelete.Image = CType(resources.GetObject("PictureBoxDelete.Image"), Image)
+        PictureBoxDelete.Location = New Point(0, 0)
+        PictureBoxDelete.Name = "PictureBoxDelete"
+        PictureBoxDelete.Size = New Size(12, 12)
+        PictureBoxDelete.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxDelete.TabIndex = 0
+        PictureBoxDelete.TabStop = False
         ' 
         ' DeleteBookButton
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(PictureBox1)
+        Controls.Add(PictureBoxDelete)
         Name = "DeleteBookButton"
         Size = New Size(12, 12)
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxDelete, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBoxDelete As PictureBox
 
 End Class
