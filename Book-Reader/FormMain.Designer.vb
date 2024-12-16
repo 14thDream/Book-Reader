@@ -29,12 +29,12 @@ Partial Class FormMain
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
         PanelReadChapter = New Panel()
-        LabelChapterTitle = New Label()
+        RichTextBoxChapterContent = New RichTextBox()
         LabelChapterNumber = New Label()
+        LabelChapterTitle = New Label()
         ButtonBackChapter = New PictureBox()
         PictureBoxNext = New PictureBox()
         PictureBoxBack = New PictureBox()
-        LabelChapterContent = New Label()
         ButtonAddChapter = New Button()
         DataGridViewChapters = New DataGridView()
         Label1 = New Label()
@@ -104,18 +104,37 @@ Partial Class FormMain
         ' 
         ' PanelReadChapter
         ' 
+        PanelReadChapter.Controls.Add(RichTextBoxChapterContent)
         PanelReadChapter.Controls.Add(LabelChapterNumber)
         PanelReadChapter.Controls.Add(LabelChapterTitle)
         PanelReadChapter.Controls.Add(ButtonBackChapter)
         PanelReadChapter.Controls.Add(PictureBoxNext)
         PanelReadChapter.Controls.Add(PictureBoxBack)
-        PanelReadChapter.Controls.Add(LabelChapterContent)
         PanelReadChapter.Dock = DockStyle.Fill
         PanelReadChapter.Location = New Point(0, 0)
         PanelReadChapter.Name = "PanelReadChapter"
         PanelReadChapter.Size = New Size(1298, 881)
         PanelReadChapter.TabIndex = 7
         PanelReadChapter.Visible = False
+        ' 
+        ' RichTextBoxChapterContent
+        ' 
+        RichTextBoxChapterContent.BackColor = Color.White
+        RichTextBoxChapterContent.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBoxChapterContent.Location = New Point(72, 72)
+        RichTextBoxChapterContent.Name = "RichTextBoxChapterContent"
+        RichTextBoxChapterContent.ReadOnly = True
+        RichTextBoxChapterContent.Size = New Size(1154, 779)
+        RichTextBoxChapterContent.TabIndex = 11
+        RichTextBoxChapterContent.Text = ""
+        ' 
+        ' LabelChapterNumber
+        ' 
+        LabelChapterNumber.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelChapterNumber.Location = New Point(72, 28)
+        LabelChapterNumber.Name = "LabelChapterNumber"
+        LabelChapterNumber.Size = New Size(58, 20)
+        LabelChapterNumber.TabIndex = 9
         ' 
         ' LabelChapterTitle
         ' 
@@ -126,14 +145,6 @@ Partial Class FormMain
         LabelChapterTitle.Size = New Size(1154, 20)
         LabelChapterTitle.TabIndex = 10
         LabelChapterTitle.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' LabelChapterNumber
-        ' 
-        LabelChapterNumber.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LabelChapterNumber.Location = New Point(72, 28)
-        LabelChapterNumber.Name = "LabelChapterNumber"
-        LabelChapterNumber.Size = New Size(58, 20)
-        LabelChapterNumber.TabIndex = 9
         ' 
         ' ButtonBackChapter
         ' 
@@ -164,15 +175,6 @@ Partial Class FormMain
         PictureBoxBack.SizeMode = PictureBoxSizeMode.Zoom
         PictureBoxBack.TabIndex = 1
         PictureBoxBack.TabStop = False
-        ' 
-        ' LabelChapterContent
-        ' 
-        LabelChapterContent.BackColor = Color.White
-        LabelChapterContent.BorderStyle = BorderStyle.FixedSingle
-        LabelChapterContent.Location = New Point(72, 72)
-        LabelChapterContent.Name = "LabelChapterContent"
-        LabelChapterContent.Size = New Size(1154, 779)
-        LabelChapterContent.TabIndex = 0
         ' 
         ' ButtonAddChapter
         ' 
@@ -282,7 +284,7 @@ Partial Class FormMain
         ' 
         ' FormMain
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 881)
         Controls.Add(PanelDashboard)
@@ -316,9 +318,9 @@ Partial Class FormMain
     Friend WithEvents PanelReadChapter As Panel
     Friend WithEvents PictureBoxNext As PictureBox
     Friend WithEvents PictureBoxBack As PictureBox
-    Friend WithEvents LabelChapterContent As Label
     Friend WithEvents ButtonBackChapter As PictureBox
     Friend WithEvents LabelChapterTitle As Label
     Friend WithEvents LabelChapterNumber As Label
+    Friend WithEvents RichTextBoxChapterContent As RichTextBox
 
 End Class

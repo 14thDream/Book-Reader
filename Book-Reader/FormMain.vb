@@ -117,7 +117,7 @@ Public Class FormMain
 
             LabelChapterNumber.Text = $"{ChapterNumber}."
             LabelChapterTitle.Text = Reader.GetString("Title")
-            LabelChapterContent.Text = Reader.GetString("Content")
+            RichTextBoxChapterContent.Text = Reader.GetString("Content")
 
             SqlConnection.Close()
         End Using
@@ -146,7 +146,7 @@ Public Class FormMain
 
             LabelChapterNumber.Text = $"{ChapterNumber}."
             LabelChapterTitle.Text = Reader.GetString("Title")
-            LabelChapterContent.Text = Reader.GetString("Content")
+            RichTextBoxChapterContent.Text = Reader.GetString("Content")
 
             SqlConnection.Close()
         End Using
