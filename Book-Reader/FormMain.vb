@@ -57,6 +57,9 @@ Public Class FormMain
             SqlConnection.Close()
         End Using
 
+        ' The DataSource is first set to nothing to ensure that its properties get reset.
+        ' This is to fix a bug caused by the first column slowly disappearing evey time this method is called.
+        DataGridViewChapters.DataSource = Nothing
         DataGridViewChapters.DataSource = Chapters
 
         Dim ColumnChapterId = DataGridViewChapters.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
