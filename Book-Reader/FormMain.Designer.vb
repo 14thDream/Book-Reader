@@ -84,7 +84,6 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
-        PanelDetails.Controls.Add(ButtonBackChapter)
         PanelDetails.Controls.Add(PanelReadChapter)
         PanelDetails.Controls.Add(ButtonAddChapter)
         PanelDetails.Controls.Add(DataGridViewChapters)
@@ -104,7 +103,7 @@ Partial Class FormMain
         ' ButtonBackChapter
         ' 
         ButtonBackChapter.Image = CType(resources.GetObject("ButtonBackChapter.Image"), Image)
-        ButtonBackChapter.Location = New Point(12, 12)
+        ButtonBackChapter.Location = New Point(12, 72)
         ButtonBackChapter.Name = "ButtonBackChapter"
         ButtonBackChapter.Size = New Size(30, 30)
         ButtonBackChapter.SizeMode = PictureBoxSizeMode.StretchImage
@@ -113,6 +112,7 @@ Partial Class FormMain
         ' 
         ' PanelReadChapter
         ' 
+        PanelReadChapter.Controls.Add(ButtonBackChapter)
         PanelReadChapter.Controls.Add(PictureBoxNext)
         PanelReadChapter.Controls.Add(PictureBoxBack)
         PanelReadChapter.Controls.Add(LabelChapterContent)
