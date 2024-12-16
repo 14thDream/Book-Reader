@@ -29,6 +29,8 @@ Partial Class FormMain
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
         PanelReadChapter = New Panel()
+        LabelChapterTitle = New Label()
+        LabelChapterNumber = New Label()
         ButtonBackChapter = New PictureBox()
         PictureBoxNext = New PictureBox()
         PictureBoxBack = New PictureBox()
@@ -102,6 +104,8 @@ Partial Class FormMain
         ' 
         ' PanelReadChapter
         ' 
+        PanelReadChapter.Controls.Add(LabelChapterNumber)
+        PanelReadChapter.Controls.Add(LabelChapterTitle)
         PanelReadChapter.Controls.Add(ButtonBackChapter)
         PanelReadChapter.Controls.Add(PictureBoxNext)
         PanelReadChapter.Controls.Add(PictureBoxBack)
@@ -112,6 +116,24 @@ Partial Class FormMain
         PanelReadChapter.Size = New Size(1298, 881)
         PanelReadChapter.TabIndex = 7
         PanelReadChapter.Visible = False
+        ' 
+        ' LabelChapterTitle
+        ' 
+        LabelChapterTitle.BackColor = SystemColors.Control
+        LabelChapterTitle.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelChapterTitle.Location = New Point(72, 28)
+        LabelChapterTitle.Name = "LabelChapterTitle"
+        LabelChapterTitle.Size = New Size(1154, 20)
+        LabelChapterTitle.TabIndex = 10
+        LabelChapterTitle.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LabelChapterNumber
+        ' 
+        LabelChapterNumber.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelChapterNumber.Location = New Point(72, 28)
+        LabelChapterNumber.Name = "LabelChapterNumber"
+        LabelChapterNumber.Size = New Size(58, 20)
+        LabelChapterNumber.TabIndex = 9
         ' 
         ' ButtonBackChapter
         ' 
@@ -260,7 +282,7 @@ Partial Class FormMain
         ' 
         ' FormMain
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 881)
         Controls.Add(PanelDashboard)
@@ -296,5 +318,7 @@ Partial Class FormMain
     Friend WithEvents PictureBoxBack As PictureBox
     Friend WithEvents LabelChapterContent As Label
     Friend WithEvents ButtonBackChapter As PictureBox
+    Friend WithEvents LabelChapterTitle As Label
+    Friend WithEvents LabelChapterNumber As Label
 
 End Class

@@ -109,12 +109,14 @@ Public Class FormMain
         Using SqlConnection As New MySqlConnection(ConnectionString)
             SqlConnection.Open()
 
-            Dim Command As New MySqlCommand("SELECT Content FROM Chapters WHERE Id = @Id", SqlConnection)
+            Dim Command As New MySqlCommand("SELECT Title, Content FROM Chapters WHERE Id = @Id", SqlConnection)
             Command.Parameters.AddWithValue("@Id", id)
 
             Dim Reader = Command.ExecuteReader()
             Reader.Read()
 
+            LabelChapterNumber.Text = $"{ChapterNumber}."
+            LabelChapterTitle.Text = Reader.GetString("Title")
             LabelChapterContent.Text = Reader.GetString("Content")
 
             SqlConnection.Close()
@@ -136,12 +138,14 @@ Public Class FormMain
         Using SqlConnection As New MySqlConnection(ConnectionString)
             SqlConnection.Open()
 
-            Dim Command As New MySqlCommand($"SELECT Content FROM Chapters WHERE BookId = @Id AND ChapterNumber {Symbol} {chapter}", SqlConnection)
+            Dim Command As New MySqlCommand($"SELECT Title, Content FROM Chapters WHERE BookId = @Id AND ChapterNumber {Symbol} {chapter}", SqlConnection)
             Command.Parameters.AddWithValue("@Id", id)
 
             Dim Reader = Command.ExecuteReader()
             Reader.Read()
 
+            LabelChapterNumber.Text = $"{ChapterNumber}."
+            LabelChapterTitle.Text = Reader.GetString("Title")
             LabelChapterContent.Text = Reader.GetString("Content")
 
             SqlConnection.Close()
