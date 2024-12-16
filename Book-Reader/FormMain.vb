@@ -43,7 +43,7 @@ Public Class FormMain
         Using SqlConnection As New MySqlConnection(ConnectionString)
             SqlConnection.Open()
 
-            Dim QueryChapters As New MySqlCommand("SELECT ChapterNumber AS Chapter, Title FROM Chapters WHERE BookId = @Id ORDER BY Chapter", SqlConnection)
+            Dim QueryChapters As New MySqlCommand("SELECT Id, ChapterNumber AS Chapter, Title FROM Chapters WHERE BookId = @Id ORDER BY Chapter", SqlConnection)
             QueryChapters.Parameters.AddWithValue("@Id", id)
 
             Dim DataAdapter As New MySqlDataAdapter With {
@@ -56,6 +56,9 @@ Public Class FormMain
         End Using
 
         DataGridViewChapters.DataSource = Chapters
+
+        Dim ColumnChapterId = DataGridViewChapters.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
+        ColumnChapterId.Visible = False
 
         Dim ColumnChapter = DataGridViewChapters.Columns.GetFirstColumn(DataGridViewElementStates.Visible)
         Dim ColumnTitle = DataGridViewChapters.Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None)
