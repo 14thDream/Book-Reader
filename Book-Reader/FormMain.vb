@@ -5,6 +5,8 @@ Public Class FormMain
     Public ConnectionString As String = "server=localhost;database=BookReader;userid=root"
     Public BookId As Integer
 
+    Private ChapterNumber As Integer
+
     Public Sub LoadBooks()
         TableLayoutPanelDashboard.Controls.Clear()
 
@@ -70,6 +72,22 @@ Public Class FormMain
 
     End Sub
 
+    Private Sub LoadChapter(id As Integer)
+        Using SqlConnection As New MySqlConnection(ConnectionString)
+            SqlConnection.Open()
+
+            Dim Command As New MySqlCommand("SELECT Content FROM Chapters WHERE Id = @Id", SqlConnection)
+            Command.Parameters.AddWithValue("@Id", id)
+
+            Dim Reader = Command.ExecuteReader()
+            Reader.Read()
+
+            LabelChapterContent.Text = Reader.GetString("Content")
+
+            SqlConnection.Close()
+        End Using
+    End Sub
+
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         LoadBooks()
     End Sub
@@ -99,5 +117,15 @@ Public Class FormMain
 
     Private Sub ButtonBackChapter_Click(sender As Object, e As EventArgs) Handles ButtonBackChapter.Click
         PanelReadChapter.Visible = False
+    End Sub
+
+    Private Sub DataGridViewChapters_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewChapters.CellDoubleClick
+        Dim Row = DataGridViewChapters.Rows(e.RowIndex)
+        ChapterNumber = Row.Cells("Chapter").Value
+
+        Dim ChapterId = Row.Cells("Id").Value
+        LoadChapter(ChapterId)
+
+        PanelReadChapter.Visible = True
     End Sub
 End Class
