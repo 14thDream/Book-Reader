@@ -28,6 +28,7 @@ Partial Class FormMain
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
+        PanelReadChapter = New Panel()
         ButtonAddChapter = New Button()
         DataGridViewChapters = New DataGridView()
         Label1 = New Label()
@@ -36,30 +37,38 @@ Partial Class FormMain
         LabelTitle = New Label()
         PictureBoxCover = New PictureBox()
         ButtonBackDetails = New PictureBox()
+        LabelChapterContent = New Label()
+        PictureBoxBack = New PictureBox()
+        PictureBoxNext = New PictureBox()
+        ButtonBackChapter = New PictureBox()
         PanelDashboard.SuspendLayout()
         PanelDetails.SuspendLayout()
+        PanelReadChapter.SuspendLayout()
         CType(DataGridViewChapters, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).BeginInit()
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxBack, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxNext, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TableLayoutPanelDashboard
         ' 
         TableLayoutPanelDashboard.AutoScroll = True
         TableLayoutPanelDashboard.ColumnCount = 4
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
         TableLayoutPanelDashboard.Dock = DockStyle.Fill
         TableLayoutPanelDashboard.Location = New Point(0, 0)
         TableLayoutPanelDashboard.Name = "TableLayoutPanelDashboard"
         TableLayoutPanelDashboard.RowCount = 5
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
         TableLayoutPanelDashboard.Size = New Size(1298, 881)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
@@ -75,6 +84,8 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.Controls.Add(ButtonBackChapter)
+        PanelDetails.Controls.Add(PanelReadChapter)
         PanelDetails.Controls.Add(ButtonAddChapter)
         PanelDetails.Controls.Add(DataGridViewChapters)
         PanelDetails.Controls.Add(Label1)
@@ -89,6 +100,18 @@ Partial Class FormMain
         PanelDetails.Size = New Size(1298, 881)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        ' 
+        ' PanelReadChapter
+        ' 
+        PanelReadChapter.Controls.Add(PictureBoxNext)
+        PanelReadChapter.Controls.Add(PictureBoxBack)
+        PanelReadChapter.Controls.Add(LabelChapterContent)
+        PanelReadChapter.Dock = DockStyle.Fill
+        PanelReadChapter.Location = New Point(0, 0)
+        PanelReadChapter.Name = "PanelReadChapter"
+        PanelReadChapter.Size = New Size(1298, 881)
+        PanelReadChapter.TabIndex = 7
+        PanelReadChapter.Visible = False
         ' 
         ' ButtonAddChapter
         ' 
@@ -122,7 +145,7 @@ Partial Class FormMain
         DataGridViewChapters.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9.0F)
         DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -140,7 +163,7 @@ Partial Class FormMain
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(499, 54)
         Label1.Name = "Label1"
         Label1.Size = New Size(84, 21)
@@ -159,7 +182,7 @@ Partial Class FormMain
         ' 
         ' LabelAuthor
         ' 
-        LabelAuthor.Font = New Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        LabelAuthor.Font = New Font("Segoe UI", 12.0F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         LabelAuthor.Location = New Point(113, 607)
         LabelAuthor.Name = "LabelAuthor"
         LabelAuthor.Size = New Size(320, 23)
@@ -169,7 +192,7 @@ Partial Class FormMain
         ' LabelTitle
         ' 
         LabelTitle.AutoEllipsis = True
-        LabelTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LabelTitle.Location = New Point(113, 575)
         LabelTitle.Name = "LabelTitle"
         LabelTitle.Size = New Size(320, 32)
@@ -196,9 +219,48 @@ Partial Class FormMain
         ButtonBackDetails.TabIndex = 0
         ButtonBackDetails.TabStop = False
         ' 
+        ' LabelChapterContent
+        ' 
+        LabelChapterContent.BackColor = Color.White
+        LabelChapterContent.BorderStyle = BorderStyle.FixedSingle
+        LabelChapterContent.Location = New Point(72, 72)
+        LabelChapterContent.Name = "LabelChapterContent"
+        LabelChapterContent.Size = New Size(1154, 779)
+        LabelChapterContent.TabIndex = 0
+        ' 
+        ' PictureBoxBack
+        ' 
+        PictureBoxBack.Image = CType(resources.GetObject("PictureBoxBack.Image"), Image)
+        PictureBoxBack.Location = New Point(11, 434)
+        PictureBoxBack.Name = "PictureBoxBack"
+        PictureBoxBack.Size = New Size(50, 50)
+        PictureBoxBack.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxBack.TabIndex = 1
+        PictureBoxBack.TabStop = False
+        ' 
+        ' PictureBoxNext
+        ' 
+        PictureBoxNext.Image = CType(resources.GetObject("PictureBoxNext.Image"), Image)
+        PictureBoxNext.Location = New Point(1237, 434)
+        PictureBoxNext.Name = "PictureBoxNext"
+        PictureBoxNext.Size = New Size(50, 50)
+        PictureBoxNext.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxNext.TabIndex = 2
+        PictureBoxNext.TabStop = False
+        ' 
+        ' ButtonBackChapter
+        ' 
+        ButtonBackChapter.Image = CType(resources.GetObject("ButtonBackChapter.Image"), Image)
+        ButtonBackChapter.Location = New Point(12, 12)
+        ButtonBackChapter.Name = "ButtonBackChapter"
+        ButtonBackChapter.Size = New Size(30, 30)
+        ButtonBackChapter.SizeMode = PictureBoxSizeMode.StretchImage
+        ButtonBackChapter.TabIndex = 8
+        ButtonBackChapter.TabStop = False
+        ' 
         ' FormMain
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 881)
         Controls.Add(PanelDashboard)
@@ -208,9 +270,13 @@ Partial Class FormMain
         PanelDashboard.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
         PanelDetails.PerformLayout()
+        PanelReadChapter.ResumeLayout(False)
         CType(DataGridViewChapters, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxBack, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxNext, ComponentModel.ISupportInitialize).EndInit()
+        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -225,5 +291,10 @@ Partial Class FormMain
     Friend WithEvents Label1 As Label
     Friend WithEvents DataGridViewChapters As DataGridView
     Friend WithEvents ButtonAddChapter As Button
+    Friend WithEvents PanelReadChapter As Panel
+    Friend WithEvents PictureBoxNext As PictureBox
+    Friend WithEvents PictureBoxBack As PictureBox
+    Friend WithEvents LabelChapterContent As Label
+    Friend WithEvents ButtonBackChapter As PictureBox
 
 End Class
