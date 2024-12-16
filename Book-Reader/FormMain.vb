@@ -96,4 +96,8 @@ Public Class FormMain
         Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber)
         SaveChapterForm.Show()
     End Sub
+
+    Private Sub ButtonBackChapter_Click(sender As Object, e As EventArgs) Handles ButtonBackChapter.Click
+        PanelReadChapter.Visible = False
+    End Sub
 End Class
