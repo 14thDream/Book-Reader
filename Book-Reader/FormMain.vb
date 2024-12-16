@@ -4,6 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class FormMain
     Public ConnectionString As String = "server=localhost;database=BookReader;userid=root"
     Public BookId As Integer
+    Public SelectedChapterIndex As Integer
 
     Public Sub LoadBooks()
         TableLayoutPanelDashboard.Controls.Clear()
@@ -92,5 +93,24 @@ Public Class FormMain
 
         Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber)
         SaveChapterForm.Show()
+    End Sub
+
+    Private Sub DataGridViewChapters_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewChapters.CellContentClick
+        SelectedChapterIndex = e.RowIndex
+    End Sub
+
+    Private Sub EditChapter_Button_Click(sender As Object, e As EventArgs) Handles EditChapter_Button.Click
+        Using SqlConnection As New MySqlConnection(ConnectionString)
+            SqlConnection.Open()
+            Dim Command As New MySqlCommand("SELECT Title FROM CHAPTERS WHERE Id = @Id", SqlConnection)
+            Command.Parameters.AddWithValue("@Id", SelectedChapterIndex + 1)
+            Using Reader = Command.ExecuteReader()
+                While Reader.Read
+                    Dim Title = Reader.GetString("Title")
+                    MessageBox.Show($"Selected Chapter Right Now: {Title}")
+                End While
+            End Using
+            SqlConnection.Close()
+        End Using
     End Sub
 End Class

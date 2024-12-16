@@ -22,12 +22,13 @@ Partial Class FormMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
+        EditChapter_Button = New Button()
         ButtonAddChapter = New Button()
         DataGridViewChapters = New DataGridView()
         Label1 = New Label()
@@ -75,6 +76,7 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.Controls.Add(EditChapter_Button)
         PanelDetails.Controls.Add(ButtonAddChapter)
         PanelDetails.Controls.Add(DataGridViewChapters)
         PanelDetails.Controls.Add(Label1)
@@ -89,6 +91,16 @@ Partial Class FormMain
         PanelDetails.Size = New Size(1298, 881)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        ' 
+        ' EditChapter_Button
+        ' 
+        EditChapter_Button.AutoSize = True
+        EditChapter_Button.Location = New Point(1061, 776)
+        EditChapter_Button.Name = "EditChapter_Button"
+        EditChapter_Button.Size = New Size(84, 25)
+        EditChapter_Button.TabIndex = 7
+        EditChapter_Button.Text = "Edit Chapter"
+        EditChapter_Button.UseVisualStyleBackColor = True
         ' 
         ' ButtonAddChapter
         ' 
@@ -111,23 +123,23 @@ Partial Class FormMain
         DataGridViewChapters.BorderStyle = BorderStyle.None
         DataGridViewChapters.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal
         DataGridViewChapters.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = SystemColors.ControlDark
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridViewChapters.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = SystemColors.ControlDark
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridViewChapters.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridViewChapters.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridViewChapters.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = SystemColors.Window
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle4.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
+        DataGridViewChapters.DefaultCellStyle = DataGridViewCellStyle4
         DataGridViewChapters.EnableHeadersVisualStyles = False
         DataGridViewChapters.Location = New Point(499, 373)
         DataGridViewChapters.MultiSelect = False
@@ -225,5 +237,6 @@ Partial Class FormMain
     Friend WithEvents Label1 As Label
     Friend WithEvents DataGridViewChapters As DataGridView
     Friend WithEvents ButtonAddChapter As Button
+    Friend WithEvents EditChapter_Button As Button
 
 End Class

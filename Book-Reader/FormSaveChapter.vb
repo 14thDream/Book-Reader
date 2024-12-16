@@ -45,4 +45,12 @@ Public Class FormSaveChapter
 
         Close()
     End Sub
+
+    Private Sub FormSaveChapter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub RichTextBoxContent_TextChanged(sender As Object, e As EventArgs) Handles RichTextBoxContent.TextChanged
+
+    End Sub
 End Class

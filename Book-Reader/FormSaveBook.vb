@@ -157,6 +157,10 @@ Public Class FormSaveBook
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+    Private Sub Genre_ComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Genre_ComboBox.SelectedIndexChanged
+
+    End Sub
 End Class
 
 
