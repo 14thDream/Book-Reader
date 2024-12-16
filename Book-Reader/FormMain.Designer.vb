@@ -29,8 +29,8 @@ Partial Class FormMain
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
         PanelReadChapter = New Panel()
-        RichTextBoxChapterContent = New RichTextBox()
         LabelChapterNumber = New Label()
+        RichTextBoxChapterContent = New RichTextBox()
         LabelChapterTitle = New Label()
         ButtonBackChapter = New PictureBox()
         PictureBoxNext = New PictureBox()
@@ -43,6 +43,10 @@ Partial Class FormMain
         LabelTitle = New Label()
         PictureBoxCover = New PictureBox()
         ButtonBackDetails = New PictureBox()
+        LabelGenreNoContent = New Label()
+        LabelDatePublishedNoContent = New Label()
+        LabelGenre = New Label()
+        LabelDatePublished = New Label()
         PanelDashboard.SuspendLayout()
         PanelDetails.SuspendLayout()
         PanelReadChapter.SuspendLayout()
@@ -95,6 +99,10 @@ Partial Class FormMain
         PanelDetails.Controls.Add(LabelTitle)
         PanelDetails.Controls.Add(PictureBoxCover)
         PanelDetails.Controls.Add(ButtonBackDetails)
+        PanelDetails.Controls.Add(LabelGenreNoContent)
+        PanelDetails.Controls.Add(LabelDatePublishedNoContent)
+        PanelDetails.Controls.Add(LabelGenre)
+        PanelDetails.Controls.Add(LabelDatePublished)
         PanelDetails.Dock = DockStyle.Fill
         PanelDetails.Location = New Point(0, 0)
         PanelDetails.Name = "PanelDetails"
@@ -117,6 +125,14 @@ Partial Class FormMain
         PanelReadChapter.TabIndex = 7
         PanelReadChapter.Visible = False
         ' 
+        ' LabelChapterNumber
+        ' 
+        LabelChapterNumber.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelChapterNumber.Location = New Point(72, 34)
+        LabelChapterNumber.Name = "LabelChapterNumber"
+        LabelChapterNumber.Size = New Size(58, 20)
+        LabelChapterNumber.TabIndex = 9
+        ' 
         ' RichTextBoxChapterContent
         ' 
         RichTextBoxChapterContent.BackColor = Color.White
@@ -127,14 +143,6 @@ Partial Class FormMain
         RichTextBoxChapterContent.Size = New Size(1154, 779)
         RichTextBoxChapterContent.TabIndex = 11
         RichTextBoxChapterContent.Text = ""
-        ' 
-        ' LabelChapterNumber
-        ' 
-        LabelChapterNumber.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LabelChapterNumber.Location = New Point(72, 34)
-        LabelChapterNumber.Name = "LabelChapterNumber"
-        LabelChapterNumber.Size = New Size(58, 20)
-        LabelChapterNumber.TabIndex = 9
         ' 
         ' LabelChapterTitle
         ' 
@@ -282,6 +290,44 @@ Partial Class FormMain
         ButtonBackDetails.TabIndex = 0
         ButtonBackDetails.TabStop = False
         ' 
+        ' LabelGenreNoContent
+        ' 
+        LabelGenreNoContent.AutoSize = True
+        LabelGenreNoContent.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelGenreNoContent.Location = New Point(113, 660)
+        LabelGenreNoContent.Name = "LabelGenreNoContent"
+        LabelGenreNoContent.Size = New Size(59, 21)
+        LabelGenreNoContent.TabIndex = 8
+        LabelGenreNoContent.Text = "Genre:"
+        ' 
+        ' LabelDatePublishedNoContent
+        ' 
+        LabelDatePublishedNoContent.AutoSize = True
+        LabelDatePublishedNoContent.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelDatePublishedNoContent.Location = New Point(113, 700)
+        LabelDatePublishedNoContent.Name = "LabelDatePublishedNoContent"
+        LabelDatePublishedNoContent.Size = New Size(134, 21)
+        LabelDatePublishedNoContent.TabIndex = 9
+        LabelDatePublishedNoContent.Text = "Date Published: "
+        ' 
+        ' LabelGenre
+        ' 
+        LabelGenre.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LabelGenre.Location = New Point(253, 660)
+        LabelGenre.Name = "LabelGenre"
+        LabelGenre.Size = New Size(180, 23)
+        LabelGenre.TabIndex = 10
+        LabelGenre.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LabelDatePublished
+        ' 
+        LabelDatePublished.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LabelDatePublished.Location = New Point(253, 700)
+        LabelDatePublished.Name = "LabelDatePublished"
+        LabelDatePublished.Size = New Size(180, 23)
+        LabelDatePublished.TabIndex = 11
+        LabelDatePublished.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' FormMain
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
@@ -322,5 +368,9 @@ Partial Class FormMain
     Friend WithEvents LabelChapterTitle As Label
     Friend WithEvents LabelChapterNumber As Label
     Friend WithEvents RichTextBoxChapterContent As RichTextBox
+    Friend WithEvents LabelGenre As Label
+    Friend WithEvents LabelDatePublishedNoContent As Label
+    Friend WithEvents LabelGenreNoContent As Label
+    Friend WithEvents LabelDatePublished As Label
 
 End Class
