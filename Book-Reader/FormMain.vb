@@ -75,6 +75,36 @@ Public Class FormMain
 
     End Sub
 
+    Private Function AnyChaptersLeft(isNext As Boolean) As Boolean
+        Dim Symbol As String
+        If isNext Then
+            Symbol = ">"
+        Else
+            Symbol = "<"
+        End If
+
+        Dim ChaptersRemain As Boolean
+
+        Using SqlConnection As New MySqlConnection(ConnectionString)
+            SqlConnection.Open()
+
+            Dim Command As New MySqlCommand($"SELECT Content FROM Chapters WHERE BookId = @Id AND ChapterNumber {Symbol} {ChapterNumber}", SqlConnection)
+            Command.Parameters.AddWithValue("@Id", BookId)
+
+            Dim Reader = Command.ExecuteReader()
+            ChaptersRemain = Reader.Read
+
+            SqlConnection.Close()
+        End Using
+
+        Return ChaptersRemain
+    End Function
+
+    Private Sub LoadChapterMovementButtons()
+        PictureBoxBack.Visible = AnyChaptersLeft(False)
+        PictureBoxNext.Visible = AnyChaptersLeft(True)
+    End Sub
+
     Private Sub LoadChapter(id As Integer)
         Using SqlConnection As New MySqlConnection(ConnectionString)
             SqlConnection.Open()
@@ -89,6 +119,8 @@ Public Class FormMain
 
             SqlConnection.Close()
         End Using
+
+        LoadChapterMovementButtons()
     End Sub
 
     Private Sub LoadAdjacentChapter(id As Integer, chapter As Integer, isNext As Boolean)
@@ -115,7 +147,7 @@ Public Class FormMain
             SqlConnection.Close()
         End Using
 
-
+        LoadChapterMovementButtons()
     End Sub
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles Me.Load
