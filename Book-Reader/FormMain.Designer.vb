@@ -104,8 +104,8 @@ Partial Class FormMain
         ' 
         ' PanelReadChapter
         ' 
-        PanelReadChapter.Controls.Add(RichTextBoxChapterContent)
         PanelReadChapter.Controls.Add(LabelChapterNumber)
+        PanelReadChapter.Controls.Add(RichTextBoxChapterContent)
         PanelReadChapter.Controls.Add(LabelChapterTitle)
         PanelReadChapter.Controls.Add(ButtonBackChapter)
         PanelReadChapter.Controls.Add(PictureBoxNext)
@@ -131,7 +131,7 @@ Partial Class FormMain
         ' LabelChapterNumber
         ' 
         LabelChapterNumber.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LabelChapterNumber.Location = New Point(72, 28)
+        LabelChapterNumber.Location = New Point(72, 34)
         LabelChapterNumber.Name = "LabelChapterNumber"
         LabelChapterNumber.Size = New Size(58, 20)
         LabelChapterNumber.TabIndex = 9
@@ -139,10 +139,10 @@ Partial Class FormMain
         ' LabelChapterTitle
         ' 
         LabelChapterTitle.BackColor = SystemColors.Control
-        LabelChapterTitle.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelChapterTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LabelChapterTitle.Location = New Point(72, 28)
         LabelChapterTitle.Name = "LabelChapterTitle"
-        LabelChapterTitle.Size = New Size(1154, 20)
+        LabelChapterTitle.Size = New Size(1154, 32)
         LabelChapterTitle.TabIndex = 10
         LabelChapterTitle.TextAlign = ContentAlignment.MiddleCenter
         ' 
