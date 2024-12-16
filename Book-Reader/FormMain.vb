@@ -91,6 +91,33 @@ Public Class FormMain
         End Using
     End Sub
 
+    Private Sub LoadAdjacentChapter(id As Integer, chapter As Integer, isNext As Boolean)
+        Dim Symbol As String
+        If isNext Then
+            Symbol = ">"
+            ChapterNumber += 1
+        Else
+            Symbol = "<"
+            ChapterNumber -= 1
+        End If
+
+        Using SqlConnection As New MySqlConnection(ConnectionString)
+            SqlConnection.Open()
+
+            Dim Command As New MySqlCommand($"SELECT Content FROM Chapters WHERE BookId = @Id AND ChapterNumber {Symbol} {chapter}", SqlConnection)
+            Command.Parameters.AddWithValue("@Id", id)
+
+            Dim Reader = Command.ExecuteReader()
+            Reader.Read()
+
+            LabelChapterContent.Text = Reader.GetString("Content")
+
+            SqlConnection.Close()
+        End Using
+
+
+    End Sub
+
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         LoadBooks()
     End Sub
@@ -130,5 +157,13 @@ Public Class FormMain
         LoadChapter(ChapterId)
 
         PanelReadChapter.Visible = True
+    End Sub
+
+    Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs) Handles PictureBoxBack.Click
+        LoadAdjacentChapter(BookId, ChapterNumber, False)
+    End Sub
+
+    Private Sub PictureBoxNext_Click(sender As Object, e As EventArgs) Handles PictureBoxNext.Click
+        LoadAdjacentChapter(BookId, ChapterNumber, True)
     End Sub
 End Class

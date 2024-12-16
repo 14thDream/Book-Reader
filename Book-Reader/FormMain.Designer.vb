@@ -28,8 +28,8 @@ Partial Class FormMain
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
-        ButtonBackChapter = New PictureBox()
         PanelReadChapter = New Panel()
+        ButtonBackChapter = New PictureBox()
         PictureBoxNext = New PictureBox()
         PictureBoxBack = New PictureBox()
         LabelChapterContent = New Label()
@@ -43,8 +43,8 @@ Partial Class FormMain
         ButtonBackDetails = New PictureBox()
         PanelDashboard.SuspendLayout()
         PanelDetails.SuspendLayout()
-        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).BeginInit()
         PanelReadChapter.SuspendLayout()
+        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxNext, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxBack, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridViewChapters, ComponentModel.ISupportInitialize).BeginInit()
@@ -100,16 +100,6 @@ Partial Class FormMain
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
         ' 
-        ' ButtonBackChapter
-        ' 
-        ButtonBackChapter.Image = CType(resources.GetObject("ButtonBackChapter.Image"), Image)
-        ButtonBackChapter.Location = New Point(12, 72)
-        ButtonBackChapter.Name = "ButtonBackChapter"
-        ButtonBackChapter.Size = New Size(30, 30)
-        ButtonBackChapter.SizeMode = PictureBoxSizeMode.StretchImage
-        ButtonBackChapter.TabIndex = 8
-        ButtonBackChapter.TabStop = False
-        ' 
         ' PanelReadChapter
         ' 
         PanelReadChapter.Controls.Add(ButtonBackChapter)
@@ -122,6 +112,16 @@ Partial Class FormMain
         PanelReadChapter.Size = New Size(1298, 881)
         PanelReadChapter.TabIndex = 7
         PanelReadChapter.Visible = False
+        ' 
+        ' ButtonBackChapter
+        ' 
+        ButtonBackChapter.Image = CType(resources.GetObject("ButtonBackChapter.Image"), Image)
+        ButtonBackChapter.Location = New Point(12, 72)
+        ButtonBackChapter.Name = "ButtonBackChapter"
+        ButtonBackChapter.Size = New Size(30, 30)
+        ButtonBackChapter.SizeMode = PictureBoxSizeMode.StretchImage
+        ButtonBackChapter.TabIndex = 8
+        ButtonBackChapter.TabStop = False
         ' 
         ' PictureBoxNext
         ' 
@@ -270,8 +270,8 @@ Partial Class FormMain
         PanelDashboard.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
         PanelDetails.PerformLayout()
-        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).EndInit()
         PanelReadChapter.ResumeLayout(False)
+        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxNext, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxBack, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridViewChapters, ComponentModel.ISupportInitialize).EndInit()
