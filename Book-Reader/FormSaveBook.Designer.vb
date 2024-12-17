@@ -180,7 +180,7 @@ Partial Class FormSaveBook
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ScrollBar
+        BackColor = SystemColors.ControlLight
         ClientSize = New Size(538, 473)
         Controls.Add(Label1)
         Controls.Add(BookDatePublished)
