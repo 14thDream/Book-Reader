@@ -122,18 +122,18 @@ Public Class FormMain
         If SelectedRow IsNot Nothing Then
             Dim Id = SelectedRow.Cells("Id").Value
             Using SqlConnection As New MySqlConnection(ConnectionString)
-                    SqlConnection.Open()
-                    Dim Command As New MySqlCommand("DELETE FROM CHAPTERS WHERE Id = @ChapterId", SqlConnection)
-                    Command.Parameters.AddWithValue("@ChapterId", Id)
-                    Using Reader = Command.ExecuteReader
-                        LoadChapters(BookId)
-                    End Using
-                    SqlConnection.Close()
+                SqlConnection.Open()
+                Dim Command As New MySqlCommand("DELETE FROM CHAPTERS WHERE Id = @ChapterId", SqlConnection)
+                Command.Parameters.AddWithValue("@ChapterId", Id)
+                Using Reader = Command.ExecuteReader
+                    LoadChapters(BookId)
                 End Using
+                SqlConnection.Close()
+            End Using
 
-            Else
-                MessageBox.Show("Invalid Operation! Chapter Does Not Exist!")
-            End If
+        Else
+            MessageBox.Show("Invalid Operation! Chapter Does Not Exist!")
+        End If
         'Catch ex As Exception
         'MessageBox.Show(ex.Message)
         'End Try
