@@ -28,6 +28,7 @@ Partial Class FormMain
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
+        DeleteChapter_Button = New Button()
         EditChapter_Button = New Button()
         ButtonAddChapter = New Button()
         DataGridViewChapters = New DataGridView()
@@ -76,6 +77,7 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.Controls.Add(DeleteChapter_Button)
         PanelDetails.Controls.Add(EditChapter_Button)
         PanelDetails.Controls.Add(ButtonAddChapter)
         PanelDetails.Controls.Add(DataGridViewChapters)
@@ -91,6 +93,16 @@ Partial Class FormMain
         PanelDetails.Size = New Size(1298, 881)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        ' 
+        ' DeleteChapter_Button
+        ' 
+        DeleteChapter_Button.AutoSize = True
+        DeleteChapter_Button.Location = New Point(960, 776)
+        DeleteChapter_Button.Name = "DeleteChapter_Button"
+        DeleteChapter_Button.Size = New Size(95, 25)
+        DeleteChapter_Button.TabIndex = 8
+        DeleteChapter_Button.Text = "Delete Chapter"
+        DeleteChapter_Button.UseVisualStyleBackColor = True
         ' 
         ' EditChapter_Button
         ' 
@@ -152,7 +164,7 @@ Partial Class FormMain
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(499, 54)
         Label1.Name = "Label1"
         Label1.Size = New Size(84, 21)
@@ -171,7 +183,7 @@ Partial Class FormMain
         ' 
         ' LabelAuthor
         ' 
-        LabelAuthor.Font = New Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        LabelAuthor.Font = New Font("Segoe UI", 12.0F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         LabelAuthor.Location = New Point(113, 607)
         LabelAuthor.Name = "LabelAuthor"
         LabelAuthor.Size = New Size(320, 23)
@@ -181,7 +193,7 @@ Partial Class FormMain
         ' LabelTitle
         ' 
         LabelTitle.AutoEllipsis = True
-        LabelTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LabelTitle.Location = New Point(113, 575)
         LabelTitle.Name = "LabelTitle"
         LabelTitle.Size = New Size(320, 32)
@@ -210,7 +222,7 @@ Partial Class FormMain
         ' 
         ' FormMain
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1298, 881)
         Controls.Add(PanelDashboard)
@@ -238,5 +250,6 @@ Partial Class FormMain
     Friend WithEvents DataGridViewChapters As DataGridView
     Friend WithEvents ButtonAddChapter As Button
     Friend WithEvents EditChapter_Button As Button
+    Friend WithEvents DeleteChapter_Button As Button
 
 End Class

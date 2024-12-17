@@ -53,10 +53,10 @@ Public Class FormSaveChapter
             MessageBox.Show(ex.Message)
         End Try
         MainForm.LoadChapters(BookId)
+        Close()
     End Sub
 
     Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
-        MessageBox.Show($"Is Update: {UpdateMode}, ChapterNumber: {ChapterNumber}")
         If TextBoxTitle.Text = "" OrElse RichTextBoxContent.Text = "" Then
             MessageBox.Show("Please make sure to fill out all fields.")
             Return
