@@ -50,6 +50,7 @@ Partial Class FormMain
         LabelGenre = New Label()
         LabelDatePublished = New Label()
         PanelDashboard.SuspendLayout()
+        PanelDashboard.AutoScroll = True
         PanelDetails.SuspendLayout()
         PanelReadChapter.SuspendLayout()
         CType(ButtonBackChapter, ComponentModel.ISupportInitialize).BeginInit()
@@ -77,7 +78,7 @@ Partial Class FormMain
         TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
         TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
         TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.Size = New Size(1298, 881)
+        TableLayoutPanelDashboard.Size = New Size(1298, 749)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
         ' PanelDashboard
@@ -87,7 +88,7 @@ Partial Class FormMain
         PanelDashboard.Dock = DockStyle.Fill
         PanelDashboard.Location = New Point(0, 0)
         PanelDashboard.Name = "PanelDashboard"
-        PanelDashboard.Size = New Size(1298, 881)
+        PanelDashboard.Size = New Size(1298, 749)
         PanelDashboard.TabIndex = 1
         ' 
         ' PanelDetails
@@ -110,9 +111,10 @@ Partial Class FormMain
         PanelDetails.Dock = DockStyle.Fill
         PanelDetails.Location = New Point(0, 0)
         PanelDetails.Name = "PanelDetails"
-        PanelDetails.Size = New Size(1298, 881)
+        PanelDetails.Size = New Size(1298, 749)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        PanelDetails.AutoScroll = True
         ' 
         ' PanelReadChapter
         ' 
@@ -125,9 +127,10 @@ Partial Class FormMain
         PanelReadChapter.Dock = DockStyle.Fill
         PanelReadChapter.Location = New Point(0, 0)
         PanelReadChapter.Name = "PanelReadChapter"
-        PanelReadChapter.Size = New Size(1298, 881)
+        PanelReadChapter.Size = New Size(1298, 749)
         PanelReadChapter.TabIndex = 7
         PanelReadChapter.Visible = False
+        PanelReadChapter.AutoScroll = True
         ' 
         ' LabelChapterNumber
         ' 
@@ -356,9 +359,9 @@ Partial Class FormMain
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1298, 881)
+        ClientSize = New Size(1298, 749)
         Controls.Add(PanelDashboard)
-        MinimumSize = New Size(1314, 755)
+        MinimumSize = New Size(1314, 718)
         Name = "FormMain"
         Text = "Book Reader"
         PanelDashboard.ResumeLayout(False)

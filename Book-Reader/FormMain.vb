@@ -264,4 +264,14 @@ Public Class FormMain
     Private Sub PictureBoxNext_Click(sender As Object, e As EventArgs) Handles PictureBoxNext.Click
         LoadAdjacentChapter(BookId, ChapterNumber, True)
     End Sub
+
+    Private Sub PanelReadChapter_Paint(sender As Object, e As PaintEventArgs) Handles PanelReadChapter.Paint
+
+    End Sub
+
+
+
+    Private Sub RichTextBoxChapterContent_TextChanged(sender As Object, e As EventArgs) Handles RichTextBoxChapterContent.TextChanged
+
+    End Sub
 End Class

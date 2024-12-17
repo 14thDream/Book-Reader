@@ -70,4 +70,8 @@ Public Class FormSaveChapter
         MainForm.LoadChapters(BookId)
         Close()
     End Sub
+
+    Private Sub TextBoxTitle_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTitle.TextChanged
+
+    End Sub
 End Class
