@@ -66,6 +66,8 @@ Public Class Book
                 MainForm.LabelTitle.Text = Reader.GetString("Title")
                 MainForm.LabelAuthor.Text = Reader.GetString("Author")
                 MainForm.LabelSummary.Text = Reader.GetString("Summary")
+                MainForm.LabelGenre.Text = Reader.GetString("Genre")
+                MainForm.LabelDatePublished.Text = Reader.GetMySqlDateTime("DatePublished").GetDateTime().ToString("MMMM dd, yyyy")
 
                 Dim ImagePath = Reader.GetString("ImagePath")
 

@@ -65,7 +65,7 @@ Partial Class FormSaveChapter
         Controls.Add(RichTextBoxContent)
         Controls.Add(TextBoxTitle)
         Name = "FormSaveChapter"
-        Text = "FormAddChapter"
+        Text = "Save Chapter"
         ResumeLayout(False)
         PerformLayout()
     End Sub

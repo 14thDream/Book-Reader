@@ -22,12 +22,19 @@ Partial Class FormMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
+        PanelReadChapter = New Panel()
+        LabelChapterNumber = New Label()
+        RichTextBoxChapterContent = New RichTextBox()
+        LabelChapterTitle = New Label()
+        ButtonBackChapter = New PictureBox()
+        PictureBoxNext = New PictureBox()
+        PictureBoxBack = New PictureBox()
         DeleteChapter_Button = New Button()
         EditChapter_Button = New Button()
         ButtonAddChapter = New Button()
@@ -38,8 +45,16 @@ Partial Class FormMain
         LabelTitle = New Label()
         PictureBoxCover = New PictureBox()
         ButtonBackDetails = New PictureBox()
+        LabelGenreNoContent = New Label()
+        LabelDatePublishedNoContent = New Label()
+        LabelGenre = New Label()
+        LabelDatePublished = New Label()
         PanelDashboard.SuspendLayout()
         PanelDetails.SuspendLayout()
+        PanelReadChapter.SuspendLayout()
+        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxNext, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBoxBack, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridViewChapters, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).BeginInit()
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +92,7 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.Controls.Add(PanelReadChapter)
         PanelDetails.Controls.Add(DeleteChapter_Button)
         PanelDetails.Controls.Add(EditChapter_Button)
         PanelDetails.Controls.Add(ButtonAddChapter)
@@ -87,12 +103,90 @@ Partial Class FormMain
         PanelDetails.Controls.Add(LabelTitle)
         PanelDetails.Controls.Add(PictureBoxCover)
         PanelDetails.Controls.Add(ButtonBackDetails)
+        PanelDetails.Controls.Add(LabelGenreNoContent)
+        PanelDetails.Controls.Add(LabelDatePublishedNoContent)
+        PanelDetails.Controls.Add(LabelGenre)
+        PanelDetails.Controls.Add(LabelDatePublished)
         PanelDetails.Dock = DockStyle.Fill
         PanelDetails.Location = New Point(0, 0)
         PanelDetails.Name = "PanelDetails"
         PanelDetails.Size = New Size(1298, 881)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
+        ' 
+        ' PanelReadChapter
+        ' 
+        PanelReadChapter.Controls.Add(LabelChapterNumber)
+        PanelReadChapter.Controls.Add(RichTextBoxChapterContent)
+        PanelReadChapter.Controls.Add(LabelChapterTitle)
+        PanelReadChapter.Controls.Add(ButtonBackChapter)
+        PanelReadChapter.Controls.Add(PictureBoxNext)
+        PanelReadChapter.Controls.Add(PictureBoxBack)
+        PanelReadChapter.Dock = DockStyle.Fill
+        PanelReadChapter.Location = New Point(0, 0)
+        PanelReadChapter.Name = "PanelReadChapter"
+        PanelReadChapter.Size = New Size(1298, 881)
+        PanelReadChapter.TabIndex = 7
+        PanelReadChapter.Visible = False
+        ' 
+        ' LabelChapterNumber
+        ' 
+        LabelChapterNumber.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelChapterNumber.Location = New Point(72, 34)
+        LabelChapterNumber.Name = "LabelChapterNumber"
+        LabelChapterNumber.Size = New Size(58, 20)
+        LabelChapterNumber.TabIndex = 9
+        ' 
+        ' RichTextBoxChapterContent
+        ' 
+        RichTextBoxChapterContent.BackColor = Color.White
+        RichTextBoxChapterContent.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBoxChapterContent.Location = New Point(72, 72)
+        RichTextBoxChapterContent.Name = "RichTextBoxChapterContent"
+        RichTextBoxChapterContent.ReadOnly = True
+        RichTextBoxChapterContent.Size = New Size(1154, 779)
+        RichTextBoxChapterContent.TabIndex = 11
+        RichTextBoxChapterContent.Text = ""
+        ' 
+        ' LabelChapterTitle
+        ' 
+        LabelChapterTitle.BackColor = SystemColors.Control
+        LabelChapterTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelChapterTitle.Location = New Point(72, 28)
+        LabelChapterTitle.Name = "LabelChapterTitle"
+        LabelChapterTitle.Size = New Size(1154, 32)
+        LabelChapterTitle.TabIndex = 10
+        LabelChapterTitle.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' ButtonBackChapter
+        ' 
+        ButtonBackChapter.Image = CType(resources.GetObject("ButtonBackChapter.Image"), Image)
+        ButtonBackChapter.Location = New Point(12, 72)
+        ButtonBackChapter.Name = "ButtonBackChapter"
+        ButtonBackChapter.Size = New Size(30, 30)
+        ButtonBackChapter.SizeMode = PictureBoxSizeMode.StretchImage
+        ButtonBackChapter.TabIndex = 8
+        ButtonBackChapter.TabStop = False
+        ' 
+        ' PictureBoxNext
+        ' 
+        PictureBoxNext.Image = CType(resources.GetObject("PictureBoxNext.Image"), Image)
+        PictureBoxNext.Location = New Point(1237, 434)
+        PictureBoxNext.Name = "PictureBoxNext"
+        PictureBoxNext.Size = New Size(50, 50)
+        PictureBoxNext.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxNext.TabIndex = 2
+        PictureBoxNext.TabStop = False
+        ' 
+        ' PictureBoxBack
+        ' 
+        PictureBoxBack.Image = CType(resources.GetObject("PictureBoxBack.Image"), Image)
+        PictureBoxBack.Location = New Point(11, 434)
+        PictureBoxBack.Name = "PictureBoxBack"
+        PictureBoxBack.Size = New Size(50, 50)
+        PictureBoxBack.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxBack.TabIndex = 1
+        PictureBoxBack.TabStop = False
         ' 
         ' DeleteChapter_Button
         ' 
@@ -220,6 +314,44 @@ Partial Class FormMain
         ButtonBackDetails.TabIndex = 0
         ButtonBackDetails.TabStop = False
         ' 
+        ' LabelGenreNoContent
+        ' 
+        LabelGenreNoContent.AutoSize = True
+        LabelGenreNoContent.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelGenreNoContent.Location = New Point(113, 660)
+        LabelGenreNoContent.Name = "LabelGenreNoContent"
+        LabelGenreNoContent.Size = New Size(59, 21)
+        LabelGenreNoContent.TabIndex = 8
+        LabelGenreNoContent.Text = "Genre:"
+        ' 
+        ' LabelDatePublishedNoContent
+        ' 
+        LabelDatePublishedNoContent.AutoSize = True
+        LabelDatePublishedNoContent.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelDatePublishedNoContent.Location = New Point(113, 700)
+        LabelDatePublishedNoContent.Name = "LabelDatePublishedNoContent"
+        LabelDatePublishedNoContent.Size = New Size(134, 21)
+        LabelDatePublishedNoContent.TabIndex = 9
+        LabelDatePublishedNoContent.Text = "Date Published: "
+        ' 
+        ' LabelGenre
+        ' 
+        LabelGenre.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LabelGenre.Location = New Point(253, 660)
+        LabelGenre.Name = "LabelGenre"
+        LabelGenre.Size = New Size(180, 23)
+        LabelGenre.TabIndex = 10
+        LabelGenre.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LabelDatePublished
+        ' 
+        LabelDatePublished.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LabelDatePublished.Location = New Point(253, 700)
+        LabelDatePublished.Name = "LabelDatePublished"
+        LabelDatePublished.Size = New Size(180, 23)
+        LabelDatePublished.TabIndex = 11
+        LabelDatePublished.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' FormMain
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
@@ -232,6 +364,10 @@ Partial Class FormMain
         PanelDashboard.ResumeLayout(False)
         PanelDetails.ResumeLayout(False)
         PanelDetails.PerformLayout()
+        PanelReadChapter.ResumeLayout(False)
+        CType(ButtonBackChapter, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxNext, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBoxBack, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridViewChapters, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBoxCover, ComponentModel.ISupportInitialize).EndInit()
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).EndInit()
@@ -249,6 +385,17 @@ Partial Class FormMain
     Friend WithEvents Label1 As Label
     Friend WithEvents DataGridViewChapters As DataGridView
     Friend WithEvents ButtonAddChapter As Button
+    Friend WithEvents PanelReadChapter As Panel
+    Friend WithEvents PictureBoxNext As PictureBox
+    Friend WithEvents PictureBoxBack As PictureBox
+    Friend WithEvents ButtonBackChapter As PictureBox
+    Friend WithEvents LabelChapterTitle As Label
+    Friend WithEvents LabelChapterNumber As Label
+    Friend WithEvents RichTextBoxChapterContent As RichTextBox
+    Friend WithEvents LabelGenre As Label
+    Friend WithEvents LabelDatePublishedNoContent As Label
+    Friend WithEvents LabelGenreNoContent As Label
+    Friend WithEvents LabelDatePublished As Label
     Friend WithEvents EditChapter_Button As Button
     Friend WithEvents DeleteChapter_Button As Button
 
