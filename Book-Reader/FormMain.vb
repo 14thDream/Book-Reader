@@ -206,7 +206,6 @@ Public Class FormMain
 
     Private Sub DeleteChapter_Button_Click(sender As Object, e As EventArgs) Handles DeleteChapter_Button.Click
         Dim SelectedRow = DataGridViewChapters.CurrentRow
-        'Try'
         If SelectedRow IsNot Nothing Then
             Dim Id = SelectedRow.Cells("Id").Value
             Using SqlConnection As New MySqlConnection(ConnectionString)
@@ -218,45 +217,25 @@ Public Class FormMain
                 End Using
                 SqlConnection.Close()
             End Using
-
+            RefreshChapterCount()
         Else
             MessageBox.Show("Invalid Operation! Chapter Does Not Exist!")
         End If
-        'Catch ex As Exception
-        'MessageBox.Show(ex.Message)
-        'End Try
-        RefreshChapterCount()
-
-        ' DELETE FROM Chapters WHERE Id = @ChapterId
-
     End Sub
-
     Private Sub RefreshChapterCount()
-        'For Each column As DataGridViewColumn In DataGridViewChapters.Columns
-        '    MessageBox.Show(column.Name)
-        'Next
-        'Dim chapterColumnIndex As Integer = DataGridViewChapters.Columns("ChapterNumber").Index
+        For i As Integer = 0 To DataGridViewChapters.RowCount - 1
+            Dim CurrentChapterNumber = DataGridViewChapters.Rows(i).Cells("Chapter").Value
+            Using SqlConnection As New MySqlConnection(ConnectionString)
 
-        'MessageBox.Show(DataGridViewChapters.Rows(0).Cells("Chapter").Size)
-        Try
-            If DataGridViewChapters.CurrentRow IsNot Nothing Then
-                For i As Integer = 0 To DataGridViewChapters.RowCount - 1
-                    Dim CurrentChapterNumber = DataGridViewChapters.Rows(i).Cells("Chapter").Value
-                    Using SqlConnection As New MySqlConnection(ConnectionString)
-
-                        SqlConnection.Open()
-                        Dim Command As New MySqlCommand("UPDATE CHAPTERS SET ChapterNumber = @NewChapterNumber WHERE BookId = @BookId AND ChapterNumber = @ChapterNumber", SqlConnection)
-                        Command.Parameters.AddWithValue("@ChapterNumber", CurrentChapterNumber)
-                        Command.Parameters.AddWithValue("@NewChapterNumber", i + 1)
-                        Command.Parameters.AddWithValue("@BookId", BookId)
-                        Command.ExecuteNonQuery()
-                        SqlConnection.Close()
-                    End Using
-                Next
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+                SqlConnection.Open()
+                Dim Command As New MySqlCommand("UPDATE CHAPTERS SET ChapterNumber = @NewChapterNumber WHERE BookId = @BookId AND ChapterNumber = @ChapterNumber", SqlConnection)
+                Command.Parameters.AddWithValue("@ChapterNumber", CurrentChapterNumber)
+                Command.Parameters.AddWithValue("@NewChapterNumber", i + 1)
+                Command.Parameters.AddWithValue("@BookId", BookId)
+                Command.ExecuteNonQuery()
+                SqlConnection.Close()
+            End Using
+        Next
         LoadChapters(BookId)
     End Sub
 
@@ -265,13 +244,17 @@ Public Class FormMain
     End Sub
 
     Private Sub DataGridViewChapters_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewChapters.CellDoubleClick
-        Dim Row = DataGridViewChapters.Rows(e.RowIndex)
-        ChapterNumber = Row.Cells("Chapter").Value
+        Try
+            Dim Row = DataGridViewChapters.Rows(e.RowIndex)
+            ChapterNumber = Row.Cells("Chapter").Value
 
-        Dim ChapterId = Row.Cells("Id").Value
-        LoadChapter(ChapterId)
+            Dim ChapterId = Row.Cells("Id").Value
+            LoadChapter(ChapterId)
 
-        PanelReadChapter.Visible = True
+            PanelReadChapter.Visible = True
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub PictureBoxBack_Click(sender As Object, e As EventArgs) Handles PictureBoxBack.Click
