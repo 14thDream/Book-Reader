@@ -161,6 +161,14 @@ Public Class FormSaveBook
     Private Sub Genre_ComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Genre_ComboBox.SelectedIndexChanged
 
     End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub FormSaveBook_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
 
 
