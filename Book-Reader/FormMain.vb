@@ -4,7 +4,6 @@ Imports MySql.Data.MySqlClient
 Public Class FormMain
     Public ConnectionString As String = "server=localhost;database=BookReader;userid=root"
     Public BookId As Integer
-    Public SelectedChapterIndex As Integer
 
     Public Sub LoadBooks()
         TableLayoutPanelDashboard.Controls.Clear()
@@ -85,32 +84,35 @@ Public Class FormMain
     Private Sub ButtonAddChapter_Click(sender As Object, e As EventArgs) Handles ButtonAddChapter.Click
         Dim LastIndex = DataGridViewChapters.Rows.GetLastRow(DataGridViewElementStates.Visible)
         Dim ChapterNumber = 0
-
         If DataGridViewChapters.RowCount > 0 Then
             Dim Row = DataGridViewChapters.Rows(LastIndex)
             ChapterNumber = Row.Cells("Chapter").Value
         End If
-
-        Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber)
+        Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber, False)
         SaveChapterForm.Show()
     End Sub
-
-    Private Sub DataGridViewChapters_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewChapters.CellContentClick
-        SelectedChapterIndex = e.RowIndex
-    End Sub
-
     Private Sub EditChapter_Button_Click(sender As Object, e As EventArgs) Handles EditChapter_Button.Click
-        Using SqlConnection As New MySqlConnection(ConnectionString)
-            SqlConnection.Open()
-            Dim Command As New MySqlCommand("SELECT Title FROM CHAPTERS WHERE Id = @Id", SqlConnection)
-            Command.Parameters.AddWithValue("@Id", SelectedChapterIndex + 1)
-            Using Reader = Command.ExecuteReader()
-                While Reader.Read
-                    Dim Title = Reader.GetString("Title")
-                    MessageBox.Show($"Selected Chapter Right Now: {Title}")
-                End While
+        Dim SelectedRow As DataGridViewRow = DataGridViewChapters.CurrentRow
+        MessageBox.Show($"Index: {SelectedRow}")
+        Try
+            Dim Title As String = SelectedRow.Cells("Title").Value.ToString()
+            Using SqlConnection As New MySqlConnection(ConnectionString)
+                SqlConnection.Open()
+                Dim Command As New MySqlCommand("SELECT * FROM CHAPTERS WHERE Title = @Title", SqlConnection)
+                Command.Parameters.AddWithValue("@Title", Title)
+                Using Reader = Command.ExecuteReader()
+                    While Reader.Read
+                        Dim ChapterNumber As Integer = Reader.GetInt32("ChapterNumber")
+                        Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber, True)
+                        SaveChapterForm.Show()
+                    End While
+
+                End Using
+                SqlConnection.Close()
             End Using
-            SqlConnection.Close()
-        End Using
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class
