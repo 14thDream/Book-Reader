@@ -35,6 +35,8 @@ Partial Class FormMain
         ButtonBackChapter = New PictureBox()
         PictureBoxNext = New PictureBox()
         PictureBoxBack = New PictureBox()
+        DeleteChapter_Button = New Button()
+        EditChapter_Button = New Button()
         ButtonAddChapter = New Button()
         DataGridViewChapters = New DataGridView()
         Label1 = New Label()
@@ -91,6 +93,8 @@ Partial Class FormMain
         ' PanelDetails
         ' 
         PanelDetails.Controls.Add(PanelReadChapter)
+        PanelDetails.Controls.Add(DeleteChapter_Button)
+        PanelDetails.Controls.Add(EditChapter_Button)
         PanelDetails.Controls.Add(ButtonAddChapter)
         PanelDetails.Controls.Add(DataGridViewChapters)
         PanelDetails.Controls.Add(Label1)
@@ -183,6 +187,26 @@ Partial Class FormMain
         PictureBoxBack.SizeMode = PictureBoxSizeMode.Zoom
         PictureBoxBack.TabIndex = 1
         PictureBoxBack.TabStop = False
+        ' 
+        ' DeleteChapter_Button
+        ' 
+        DeleteChapter_Button.AutoSize = True
+        DeleteChapter_Button.Location = New Point(960, 776)
+        DeleteChapter_Button.Name = "DeleteChapter_Button"
+        DeleteChapter_Button.Size = New Size(95, 25)
+        DeleteChapter_Button.TabIndex = 8
+        DeleteChapter_Button.Text = "Delete Chapter"
+        DeleteChapter_Button.UseVisualStyleBackColor = True
+        ' 
+        ' EditChapter_Button
+        ' 
+        EditChapter_Button.AutoSize = True
+        EditChapter_Button.Location = New Point(1061, 776)
+        EditChapter_Button.Name = "EditChapter_Button"
+        EditChapter_Button.Size = New Size(84, 25)
+        EditChapter_Button.TabIndex = 7
+        EditChapter_Button.Text = "Edit Chapter"
+        EditChapter_Button.UseVisualStyleBackColor = True
         ' 
         ' ButtonAddChapter
         ' 
@@ -372,5 +396,7 @@ Partial Class FormMain
     Friend WithEvents LabelDatePublishedNoContent As Label
     Friend WithEvents LabelGenreNoContent As Label
     Friend WithEvents LabelDatePublished As Label
+    Friend WithEvents EditChapter_Button As Button
+    Friend WithEvents DeleteChapter_Button As Button
 
 End Class
