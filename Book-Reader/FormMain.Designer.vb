@@ -25,6 +25,7 @@ Partial Class FormMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        DeleteChapter_Button = New Button()
         TableLayoutPanelDashboard = New TableLayoutPanel()
         PanelDashboard = New Panel()
         PanelDetails = New Panel()
@@ -38,7 +39,6 @@ Partial Class FormMain
         DataGridViewChapters = New DataGridView()
         EditChapter_Button = New Button()
         ButtonAddChapter = New Button()
-        DeleteChapter_Button = New Button()
         Label1 = New Label()
         LabelSummary = New Label()
         LabelAuthor = New Label()
@@ -60,6 +60,16 @@ Partial Class FormMain
         CType(ButtonBackDetails, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
+        ' DeleteChapter_Button
+        ' 
+        DeleteChapter_Button.AutoSize = True
+        DeleteChapter_Button.Location = New Point(960, 700)
+        DeleteChapter_Button.Name = "DeleteChapter_Button"
+        DeleteChapter_Button.Size = New Size(95, 25)
+        DeleteChapter_Button.TabIndex = 8
+        DeleteChapter_Button.Text = "Delete Chapter"
+        DeleteChapter_Button.UseVisualStyleBackColor = True
+        ' 
         ' TableLayoutPanelDashboard
         ' 
         TableLayoutPanelDashboard.AutoScroll = True
@@ -71,12 +81,11 @@ Partial Class FormMain
         TableLayoutPanelDashboard.Dock = DockStyle.Fill
         TableLayoutPanelDashboard.Location = New Point(0, 0)
         TableLayoutPanelDashboard.Name = "TableLayoutPanelDashboard"
-        TableLayoutPanelDashboard.RowCount = 5
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
-        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanelDashboard.RowCount = 4
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
+        TableLayoutPanelDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanelDashboard.Size = New Size(1298, 749)
         TableLayoutPanelDashboard.TabIndex = 0
         ' 
@@ -248,34 +257,23 @@ Partial Class FormMain
         ButtonAddChapter.Text = "Add Chapter"
         ButtonAddChapter.UseVisualStyleBackColor = True
         ' 
-        ' DeleteChapter_Button
-        ' 
-        DeleteChapter_Button.AutoSize = True
-        DeleteChapter_Button.Location = New Point(960, 700)
-        DeleteChapter_Button.Name = "DeleteChapter_Button"
-        DeleteChapter_Button.Size = New Size(95, 25)
-        DeleteChapter_Button.TabIndex = 8
-        DeleteChapter_Button.Text = "Delete Chapter"
-        DeleteChapter_Button.UseVisualStyleBackColor = True
-        ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(499, 54)
         Label1.Name = "Label1"
-        Label1.Size = New Size(84, 21)
+        Label1.Size = New Size(140, 37)
         Label1.TabIndex = 0
         Label1.Text = "Summary"
         ' 
         ' LabelSummary
         ' 
-        LabelSummary.BackColor = SystemColors.ControlLightLight
-        LabelSummary.BorderStyle = BorderStyle.FixedSingle
+        LabelSummary.BackColor = Color.Transparent
         LabelSummary.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        LabelSummary.Location = New Point(499, 84)
+        LabelSummary.Location = New Point(499, 108)
         LabelSummary.Name = "LabelSummary"
-        LabelSummary.Size = New Size(736, 256)
+        LabelSummary.Size = New Size(736, 232)
         LabelSummary.TabIndex = 4
         ' 
         ' LabelAuthor

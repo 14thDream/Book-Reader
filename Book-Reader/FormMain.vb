@@ -204,7 +204,7 @@ Public Class FormMain
 
     End Sub
 
-    Private Sub DeleteChapter_Button_Click(sender As Object, e As EventArgs) Handles DeleteChapter_Button.Click, DeleteChapter_Button.Click
+    Private Sub DeleteChapter_Button_Click(sender As Object, e As EventArgs) Handles DeleteChapter_Button.Click
         Dim SelectedRow = DataGridViewChapters.CurrentRow
         If SelectedRow IsNot Nothing Then
             Dim Id = SelectedRow.Cells("Id").Value
