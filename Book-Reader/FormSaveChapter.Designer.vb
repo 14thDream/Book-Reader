@@ -29,6 +29,7 @@ Partial Class FormSaveChapter
         ' 
         ' TextBoxTitle
         ' 
+        TextBoxTitle.BorderStyle = BorderStyle.FixedSingle
         TextBoxTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         TextBoxTitle.Location = New Point(213, 27)
         TextBoxTitle.Name = "TextBoxTitle"
@@ -39,6 +40,7 @@ Partial Class FormSaveChapter
         ' 
         ' RichTextBoxContent
         ' 
+        RichTextBoxContent.BackColor = Color.White
         RichTextBoxContent.Location = New Point(27, 71)
         RichTextBoxContent.Name = "RichTextBoxContent"
         RichTextBoxContent.Size = New Size(746, 320)
