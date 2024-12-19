@@ -35,10 +35,10 @@ Partial Class FormMain
         ButtonBackChapter = New PictureBox()
         PictureBoxNext = New PictureBox()
         PictureBoxBack = New PictureBox()
-        DeleteChapter_Button = New Button()
+        DataGridViewChapters = New DataGridView()
         EditChapter_Button = New Button()
         ButtonAddChapter = New Button()
-        DataGridViewChapters = New DataGridView()
+        DeleteChapter_Button = New Button()
         Label1 = New Label()
         LabelSummary = New Label()
         LabelAuthor = New Label()
@@ -50,7 +50,6 @@ Partial Class FormMain
         LabelGenre = New Label()
         LabelDatePublished = New Label()
         PanelDashboard.SuspendLayout()
-        PanelDashboard.AutoScroll = True
         PanelDetails.SuspendLayout()
         PanelReadChapter.SuspendLayout()
         CType(ButtonBackChapter, ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +82,7 @@ Partial Class FormMain
         ' 
         ' PanelDashboard
         ' 
+        PanelDashboard.AutoScroll = True
         PanelDashboard.Controls.Add(PanelDetails)
         PanelDashboard.Controls.Add(TableLayoutPanelDashboard)
         PanelDashboard.Dock = DockStyle.Fill
@@ -93,11 +93,12 @@ Partial Class FormMain
         ' 
         ' PanelDetails
         ' 
+        PanelDetails.AutoScroll = True
         PanelDetails.Controls.Add(PanelReadChapter)
-        PanelDetails.Controls.Add(DeleteChapter_Button)
+        PanelDetails.Controls.Add(DataGridViewChapters)
         PanelDetails.Controls.Add(EditChapter_Button)
         PanelDetails.Controls.Add(ButtonAddChapter)
-        PanelDetails.Controls.Add(DataGridViewChapters)
+        PanelDetails.Controls.Add(DeleteChapter_Button)
         PanelDetails.Controls.Add(Label1)
         PanelDetails.Controls.Add(LabelSummary)
         PanelDetails.Controls.Add(LabelAuthor)
@@ -114,7 +115,6 @@ Partial Class FormMain
         PanelDetails.Size = New Size(1298, 749)
         PanelDetails.TabIndex = 1
         PanelDetails.Visible = False
-        PanelDetails.AutoScroll = True
         ' 
         ' PanelReadChapter
         ' 
@@ -130,7 +130,6 @@ Partial Class FormMain
         PanelReadChapter.Size = New Size(1298, 749)
         PanelReadChapter.TabIndex = 7
         PanelReadChapter.Visible = False
-        PanelReadChapter.AutoScroll = True
         ' 
         ' LabelChapterNumber
         ' 
@@ -142,12 +141,13 @@ Partial Class FormMain
         ' 
         ' RichTextBoxChapterContent
         ' 
-        RichTextBoxChapterContent.BackColor = Color.White
+        RichTextBoxChapterContent.BackColor = SystemColors.Control
+        RichTextBoxChapterContent.BorderStyle = BorderStyle.None
         RichTextBoxChapterContent.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBoxChapterContent.Location = New Point(72, 72)
+        RichTextBoxChapterContent.Location = New Point(67, 72)
         RichTextBoxChapterContent.Name = "RichTextBoxChapterContent"
         RichTextBoxChapterContent.ReadOnly = True
-        RichTextBoxChapterContent.Size = New Size(1154, 779)
+        RichTextBoxChapterContent.Size = New Size(1154, 651)
         RichTextBoxChapterContent.TabIndex = 11
         RichTextBoxChapterContent.Text = ""
         ' 
@@ -174,7 +174,7 @@ Partial Class FormMain
         ' PictureBoxNext
         ' 
         PictureBoxNext.Image = CType(resources.GetObject("PictureBoxNext.Image"), Image)
-        PictureBoxNext.Location = New Point(1237, 434)
+        PictureBoxNext.Location = New Point(1227, 434)
         PictureBoxNext.Name = "PictureBoxNext"
         PictureBoxNext.Size = New Size(50, 50)
         PictureBoxNext.SizeMode = PictureBoxSizeMode.Zoom
@@ -190,36 +190,6 @@ Partial Class FormMain
         PictureBoxBack.SizeMode = PictureBoxSizeMode.Zoom
         PictureBoxBack.TabIndex = 1
         PictureBoxBack.TabStop = False
-        ' 
-        ' DeleteChapter_Button
-        ' 
-        DeleteChapter_Button.AutoSize = True
-        DeleteChapter_Button.Location = New Point(960, 776)
-        DeleteChapter_Button.Name = "DeleteChapter_Button"
-        DeleteChapter_Button.Size = New Size(95, 25)
-        DeleteChapter_Button.TabIndex = 8
-        DeleteChapter_Button.Text = "Delete Chapter"
-        DeleteChapter_Button.UseVisualStyleBackColor = True
-        ' 
-        ' EditChapter_Button
-        ' 
-        EditChapter_Button.AutoSize = True
-        EditChapter_Button.Location = New Point(1061, 776)
-        EditChapter_Button.Name = "EditChapter_Button"
-        EditChapter_Button.Size = New Size(84, 25)
-        EditChapter_Button.TabIndex = 7
-        EditChapter_Button.Text = "Edit Chapter"
-        EditChapter_Button.UseVisualStyleBackColor = True
-        ' 
-        ' ButtonAddChapter
-        ' 
-        ButtonAddChapter.AutoSize = True
-        ButtonAddChapter.Location = New Point(1151, 776)
-        ButtonAddChapter.Name = "ButtonAddChapter"
-        ButtonAddChapter.Size = New Size(84, 25)
-        ButtonAddChapter.TabIndex = 6
-        ButtonAddChapter.Text = "Add Chapter"
-        ButtonAddChapter.UseVisualStyleBackColor = True
         ' 
         ' DataGridViewChapters
         ' 
@@ -255,8 +225,38 @@ Partial Class FormMain
         DataGridViewChapters.Name = "DataGridViewChapters"
         DataGridViewChapters.ReadOnly = True
         DataGridViewChapters.RowHeadersVisible = False
-        DataGridViewChapters.Size = New Size(736, 385)
+        DataGridViewChapters.Size = New Size(736, 310)
         DataGridViewChapters.TabIndex = 5
+        ' 
+        ' EditChapter_Button
+        ' 
+        EditChapter_Button.AutoSize = True
+        EditChapter_Button.Location = New Point(1061, 700)
+        EditChapter_Button.Name = "EditChapter_Button"
+        EditChapter_Button.Size = New Size(84, 25)
+        EditChapter_Button.TabIndex = 7
+        EditChapter_Button.Text = "Edit Chapter"
+        EditChapter_Button.UseVisualStyleBackColor = True
+        ' 
+        ' ButtonAddChapter
+        ' 
+        ButtonAddChapter.AutoSize = True
+        ButtonAddChapter.Location = New Point(1151, 700)
+        ButtonAddChapter.Name = "ButtonAddChapter"
+        ButtonAddChapter.Size = New Size(84, 25)
+        ButtonAddChapter.TabIndex = 6
+        ButtonAddChapter.Text = "Add Chapter"
+        ButtonAddChapter.UseVisualStyleBackColor = True
+        ' 
+        ' DeleteChapter_Button
+        ' 
+        DeleteChapter_Button.AutoSize = True
+        DeleteChapter_Button.Location = New Point(960, 700)
+        DeleteChapter_Button.Name = "DeleteChapter_Button"
+        DeleteChapter_Button.Size = New Size(95, 25)
+        DeleteChapter_Button.TabIndex = 8
+        DeleteChapter_Button.Text = "Delete Chapter"
+        DeleteChapter_Button.UseVisualStyleBackColor = True
         ' 
         ' Label1
         ' 
@@ -310,7 +310,7 @@ Partial Class FormMain
         ' ButtonBackDetails
         ' 
         ButtonBackDetails.Image = CType(resources.GetObject("ButtonBackDetails.Image"), Image)
-        ButtonBackDetails.Location = New Point(12, 12)
+        ButtonBackDetails.Location = New Point(12, 72)
         ButtonBackDetails.Name = "ButtonBackDetails"
         ButtonBackDetails.Size = New Size(30, 30)
         ButtonBackDetails.SizeMode = PictureBoxSizeMode.StretchImage

@@ -74,4 +74,8 @@ Public Class FormSaveChapter
     Private Sub TextBoxTitle_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTitle.TextChanged
 
     End Sub
+
+    Private Sub RichTextBoxContent_TextChanged(sender As Object, e As EventArgs) Handles RichTextBoxContent.TextChanged
+
+    End Sub
 End Class
