@@ -92,6 +92,7 @@ Partial Class FormMain
         ' PanelDashboard
         ' 
         PanelDashboard.AutoScroll = True
+        PanelDashboard.BackColor = Color.Transparent
         PanelDashboard.Controls.Add(PanelDetails)
         PanelDashboard.Controls.Add(TableLayoutPanelDashboard)
         PanelDashboard.Dock = DockStyle.Fill

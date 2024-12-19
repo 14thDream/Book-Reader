@@ -48,9 +48,10 @@ Partial Class FormSaveBook
         BookCover_PictureBox.BackColor = Color.Transparent
         BookCover_PictureBox.BackgroundImageLayout = ImageLayout.Center
         BookCover_PictureBox.BorderStyle = BorderStyle.FixedSingle
+        BookCover_PictureBox.Cursor = Cursors.Hand
         BookCover_PictureBox.Location = New Point(331, 12)
         BookCover_PictureBox.Name = "BookCover_PictureBox"
-        BookCover_PictureBox.Size = New Size(192, 307)
+        BookCover_PictureBox.Size = New Size(196, 307)
         BookCover_PictureBox.SizeMode = PictureBoxSizeMode.StretchImage
         BookCover_PictureBox.TabIndex = 41
         BookCover_PictureBox.TabStop = False

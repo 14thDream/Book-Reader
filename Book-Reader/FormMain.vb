@@ -181,17 +181,16 @@ Public Class FormMain
 
         If SelectedRow IsNot Nothing Then
             Try
-                Dim Title = SelectedRow.Cells("Title").Value.ToString
+                Dim id = SelectedRow.Cells("id").Value
                 Using SqlConnection As New MySqlConnection(ConnectionString)
                     SqlConnection.Open()
-                    Dim Command As New MySqlCommand("SELECT * FROM CHAPTERS WHERE Title = @Title", SqlConnection)
-                    Command.Parameters.AddWithValue("@Title", Title)
+                    Dim Command As New MySqlCommand("SELECT * FROM CHAPTERS WHERE id = @id", SqlConnection)
+                    Command.Parameters.AddWithValue("@id", id)
                     Using Reader = Command.ExecuteReader
-                        While Reader.Read
-                            Dim ChapterNumber = Reader.GetInt32("ChapterNumber")
-                            Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber, True)
-                            SaveChapterForm.Show()
-                        End While
+                        Reader.Read()
+                        Dim ChapterNumber = Reader.GetInt32("ChapterNumber")
+                        Dim SaveChapterForm As New FormSaveChapter(Me, BookId, ChapterNumber, True)
+                        SaveChapterForm.Show()
                     End Using
                     SqlConnection.Close()
                 End Using
